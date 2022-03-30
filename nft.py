@@ -11,18 +11,22 @@ import random
 from progressbar import progressbar
 
 import warnings
+
+import constants
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # Import configuration file
 from config import CONFIG
 
+assets_path = os.path.join('assets', 'male')
 
 # Parse the configuration file and make sure it's valid
 def parse_config():
     
     # Input traits must be placed in the assets folder. Change this value if you want to name it something else.
-    assets_path = 'assets'
+
 
     # Loop through all layers defined in CONFIG
     for layer in CONFIG:
@@ -64,13 +68,13 @@ def get_weighted_rarities(arr):
 def generate_single_image(filepaths, output_filename=None):
     
     # Treat the first layer as the background
-    bg = Image.open(os.path.join('assets', filepaths[0]))
+    bg = Image.open(os.path.join(assets_path, filepaths[0]))
     
     
     # Loop through layers 1 to n and stack them on top of another
     for filepath in filepaths[1:]:
         if filepath.endswith('.png'):
-            img = Image.open(os.path.join('assets', filepath))
+            img = Image.open(os.path.join(assets_path, filepath))
             bg.paste(img, (0,0), img)
     
     # Save the final image into desired location
@@ -116,11 +120,12 @@ def select_index(cum_rarities, rand):
 
 
 # Generate a set of traits given rarities
-def generate_trait_set_from_config():
+def generate_trait_set_from_config(skin_tone: str):
     
     trait_set = []
     trait_paths = []
-    
+
+
     for layer in CONFIG:
         # Extract list of traits and cumulative rarity weights
         traits, cum_rarities = layer['traits'], layer['cum_rarity_weights']
@@ -131,12 +136,16 @@ def generate_trait_set_from_config():
         # Select an element index based on random number and cumulative rarity weights
         idx = select_index(cum_rarities, rand_num)
 
+        chosen_trait = traits[idx]
+        if chosen_trait is not None and chosen_trait.startswith(constants.skin_adapt_pretag):
+            chosen_trait = f'{constants.skin_adapt_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
+
         # Add selected trait to trait set
-        trait_set.append(traits[idx])
+        trait_set.append(chosen_trait)
 
         # Add trait path to trait paths if the trait has been selected
-        if traits[idx] is not None:
-            trait_path = os.path.join(layer['directory'], traits[idx])
+        if chosen_trait is not None:
+            trait_path = os.path.join(layer['directory'], chosen_trait)
             trait_paths.append(trait_path)
         
     return trait_set, trait_paths
@@ -165,9 +174,12 @@ def generate_images(edition, count, drop_dup=True):
         
         # Set image name
         image_name = str(n).zfill(zfill_count) + '.png'
-        
+
+        # Choose skin-tone
+        skin_tone = constants.skin_tones[1]
+
         # Get a random set of valid traits based on rarity weights
-        trait_sets, trait_paths = generate_trait_set_from_config()
+        trait_sets, trait_paths = generate_trait_set_from_config(skin_tone)
 
         # Generate the actual image
         generate_single_image(trait_paths, os.path.join(op_path, image_name))
