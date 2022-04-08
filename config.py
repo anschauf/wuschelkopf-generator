@@ -20,7 +20,87 @@
 
 # Be sure to check out the tutorial in the README for more details.                
 
-CONFIG = [
+MALE_CONFIG = [
+    {
+        'id': 1,
+        'name': 'Background',
+        'directory': '00_Background',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 2,
+        'name': 'Shoes',
+        'directory': '01_Shoes',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 3,
+        'name': 'Body',
+        'directory': '02_Body',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 4,
+        'name': 'Clothes',
+        'directory': '03_Clothes',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 5,
+        'name': 'Right_Hand',
+        'directory': '04_Right_Hand',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 6,
+        'name': 'Left_Hand',
+        'directory': '05_Left_Hand',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 7,
+        'name': 'Mouth',
+        'directory': '06_Mouth',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 8,
+        'name': 'Eyes',
+        'directory': '07_Eyes',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 9,
+        'name': 'Hair',
+        'directory': '08_Hair',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 10,
+        'name': 'Headgear',
+        'directory': '10_Headgear',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 11,
+        'name': 'Head_Deko',
+        'directory': '11_Head_Deko',
+        'required': False,
+        'rarity_weights': None,
+    },
+]
+
+FEMALE_CONFIG = [
     {
         'id': 1,
         'name': 'Background',
