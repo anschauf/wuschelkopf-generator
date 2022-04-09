@@ -1,3 +1,17 @@
 # indication that the file name must be change according to skin-tone
 skin_adapt_pretag = 'SKIN'
-skin_tones = ['LIGHT', 'CHOCO']
+skeleton_skin = 'Skeleton'
+ghost_skin = 'Ghost'
+skin_tones = ['light', 'choco', ghost_skin, skeleton_skin]
+
+# Hair color
+hair_adapt_pretag = 'HAIR'
+hairs = ['Blue', 'Brown', 'Burning', 'Green', 'Grey', 'Purple', 'Red', 'Shining', 'Yellow']
+
+# Ghost or alive
+is_alive_adapt_pretag = 'IsAlive'
+alive_posttag = 'Basic'
+not_alive_posttag = 'Ghost'
+
+# Skeleton block
+skeleton_block = 'skeleton_block'

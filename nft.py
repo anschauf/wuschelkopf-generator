@@ -118,7 +118,7 @@ def select_index(cum_rarities, rand):
 
 
 # Generate a set of traits given rarities
-def generate_trait_set_from_config(skin_tone: str, config):
+def generate_trait_set_from_config(skin_tone: str, hair_color, config):
     trait_set = []
     trait_paths = []
 
@@ -126,15 +126,30 @@ def generate_trait_set_from_config(skin_tone: str, config):
         # Extract list of traits and cumulative rarity weights
         traits, cum_rarities = layer['traits'], layer['cum_rarity_weights']
 
+        # skip layer if it is blocked by the Skeleton-block
+        if skin_tone is constants.skeleton_skin and layer.get(constants.skeleton_block):
+            continue
+
         # Generate a random number
         rand_num = random.random()
 
         # Select an element index based on random number and cumulative rarity weights
         idx = select_index(cum_rarities, rand_num)
 
+        # Adapt the trait according to the skin-tone and the hair-color
         chosen_trait = traits[idx]
         if chosen_trait is not None and chosen_trait.startswith(constants.skin_adapt_pretag):
             chosen_trait = f'{constants.skin_adapt_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
+        elif chosen_trait is not None and chosen_trait.startswith(constants.hair_adapt_pretag):
+            chosen_trait = f'{constants.hair_adapt_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
+
+        # Handle isAlive
+        if skin_tone is constants.ghost_skin:
+            if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
+                chosen_trait = f'{constants.is_alive_adapt_pretag}_{chosen_trait.split("_")[1]}_{constants.not_alive_posttag}.png'
+        else:
+            if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
+                chosen_trait = f'{constants.is_alive_adapt_pretag}_{chosen_trait.split("_")[1]}_{constants.alive_posttag}.png'
 
         # Add selected trait to trait set
         trait_set.append(chosen_trait)
@@ -163,9 +178,10 @@ def generate_images2(edition, male_config, female_config, count, drop_dup=True):
     # Create the images
     for n in progressbar(range(count)):
 
-        # Generate random constants for the NFT (skin-tone and gender)
+        # Generate random constants for the NFT (skin-tone, gender, hair)
         is_female = True if random.randint(0, 1) > 0 else False
-        skin_tone = constants.skin_tones[0] if random.randint(0,1) > 0 else constants.skin_tones[1]
+        skin_tone = get_random_from_values(constants.skin_tones)
+        hair_color = get_random_from_values(constants.hairs)
 
         config = female_config if is_female else male_config
         assets_path = female_assets_path if is_female else male_assets_path
@@ -174,11 +190,15 @@ def generate_images2(edition, male_config, female_config, count, drop_dup=True):
         image_name = str(n).zfill(zfill_count) + '.png'
 
         # Get a random set of valid traits based on rarity weights
-        trait_sets, trait_paths = generate_trait_set_from_config(skin_tone, config)
+        trait_sets, trait_paths = generate_trait_set_from_config(skin_tone, hair_color, config)
 
         # Generate the actual image
         generate_single_image(trait_paths, assets_path, os.path.join(op_path, image_name))
 
+
+def get_random_from_values(values):
+    rand_int = random.randint(0, len(values) - 1)
+    return values[rand_int]
 
 
 # Generate the image set. Don't change drop_dup
