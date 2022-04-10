@@ -28,6 +28,7 @@ MALE_CONFIG = [
         'required': True,
         'skeleton_block': False,
         'rarity_weights': None,
+        'parity_path': '00_Background'
     },
     {
         'id': 2,
@@ -36,6 +37,7 @@ MALE_CONFIG = [
         'required': True,
         'skeleton_block': False,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 3,
@@ -44,6 +46,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '02_Body'
     },
     {
         'id': 4,
@@ -52,6 +55,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 5,
@@ -60,6 +64,7 @@ MALE_CONFIG = [
         'skeleton_block': True,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 6,
@@ -68,6 +73,7 @@ MALE_CONFIG = [
         'skeleton_block': True,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 7,
@@ -76,6 +82,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '06_Hair'
     },
     {
         'id': 8,
@@ -84,6 +91,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 9,
@@ -92,6 +100,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0],
+        'parity_path': None
     },
     {
         'id': 10,
@@ -100,6 +109,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        'parity_path': None
     },
     {
         'id': 11,
@@ -108,6 +118,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': '09_Hats'
     },
     {
         'id': 12,
@@ -116,6 +127,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': '10_Headdeko'
     },
     {
         'id': 13,
@@ -124,6 +136,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '11_Lefthand-Thing'
     },
     {
         'id': 14,
@@ -132,14 +145,16 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '12_Lefthand'
     },
     {
-        'id': 14,
+        'id': 15,
         'name': 'Right-Hand',
         'directory': '14_Righthand',
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '13_Righthand'
     },
 ]
 
@@ -151,6 +166,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '00_Background'
     },
     {
         'id': 2,
@@ -159,6 +175,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 3,
@@ -167,6 +184,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '02_Body'
     },
     {
         'id': 4,
@@ -175,6 +193,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 5,
@@ -183,6 +202,7 @@ FEMALE_CONFIG = [
         'skeleton_block': True,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 6,
@@ -191,6 +211,7 @@ FEMALE_CONFIG = [
         'skeleton_block': True,
         'required': True,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 7,
@@ -199,6 +220,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '06_Hair'
     },
     {
         'id': 8,
@@ -207,6 +229,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': None
     },
     {
         'id': 9,
@@ -215,6 +238,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        'parity_path': None
     },
     {
         'id': 10,
@@ -223,6 +247,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': '10_Hats'
     },
     {
         'id': 11,
@@ -231,6 +256,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': False,
         'rarity_weights': None,
+        'parity_path': '11_Headdeko'
     },
     {
         'id': 12,
@@ -239,6 +265,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '12_Lefthand-Thing'
     },
     {
         'id': 13,
@@ -247,6 +274,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '13_Lefthand'
     },
     {
         'id': 14,
@@ -255,5 +283,6 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
+        'parity_path': '14_Righthand'
     },
 ]

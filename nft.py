@@ -36,6 +36,9 @@ def parse_config(config, gender_folder):
         # Get trait array in sorted order
         traits = sorted([trait for trait in os.listdir(layer_path) if trait[0] != '.'])
 
+        # Check for parity folder
+        check_same_elements(layer, len(traits), gender_folder)
+
         # If layer is not required, add a None to the start of the traits array
         if not layer['required']:
             traits = [None] + traits
@@ -62,7 +65,21 @@ def parse_config(config, gender_folder):
     return config
 
 
-# Weight rarities and return a numpy array that sums up to 1
+def check_same_elements(layer, number_of_traits, gender_folder):
+    parity_prefix = constants.male_path if gender_folder == constants.female_path else constants.female_path
+
+    if layer['parity_path'] is not None:
+        parity_path = os.path.join('assets', parity_prefix, layer["parity_path"])
+
+        other_number = len([trait for trait in os.listdir(parity_path) if trait[0] != '.'])
+
+        assert other_number == number_of_traits, \
+            f'Parity-Problem: {layer["name"]},' \
+            f' in {gender_folder}: {number_of_traits},' \
+            f' in {parity_prefix}: {other_number}'
+
+
+            # Weight rarities and return a numpy array that sums up to 1
 def get_weighted_rarities(arr):
     return np.array(arr) / sum(arr)
 
@@ -96,7 +113,7 @@ def generate_single_image(filepaths, assets_path, output_filename=None):
 #                        'Shirt/blue_dot.png',
 #                        'Misc/pokeball.png',
 #                        'Hands/standard.png',
-#                        'Wristband/yellow.png'])
+#                        'Wristband/Yellow.png'])
 
 
 # Get total number of distinct possible combinations
@@ -277,8 +294,8 @@ def get_random_from_values(values):
 # Main function. Point of entry
 def main():
     print("Checking assets...")
-    male_config = parse_config(MALE_CONFIG, 'male')
-    female_config = parse_config(FEMALE_CONFIG, 'female')
+    male_config = parse_config(MALE_CONFIG, constants.male_path)
+    female_config = parse_config(FEMALE_CONFIG, constants.female_path)
 
     print("Assets look great! We are good to go!")
     print()

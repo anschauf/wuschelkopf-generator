@@ -4,6 +4,10 @@ skeleton_skin = 'Skeleton'
 ghost_skin = 'Ghost'
 skin_tones = ['light', 'choco', ghost_skin, skeleton_skin]
 
+# Gender
+female_path = 'female'
+male_path = 'male'
+
 # Hair color
 hair_adapt_pretag = 'HAIR'
 hairs = ['Blue', 'Brown', 'Burning', 'Green', 'Grey', 'Purple', 'Red', 'Shining', 'Yellow']
