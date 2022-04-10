@@ -47,7 +47,8 @@ def parse_config(config, gender_folder):
             rarities = [random.random() for x in traits]
         elif type(layer['rarity_weights'] == 'list'):
             assert len(traits) == len(
-                layer['rarity_weights']), "Make sure you have the current number of rarity weights"
+                layer['rarity_weights']), f"Incorrect Rarities: {layer['name']} - " \
+                                          f"#Trains: {len(traits)}, #Rarities: {len(layer['rarity_weights'])}"
             rarities = layer['rarity_weights']
         else:
             raise ValueError("Rarity weights is invalid")
