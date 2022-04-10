@@ -24,3 +24,14 @@ skeleton_block = 'skeleton_block'
 is_skeletive_pretag = 'IsSkeletive'
 skelet_posttag = 'Skelet'
 basic_posttag = 'Basic'
+
+# Multi-Hand (Right Hand)
+is_multi_hand_pretag = 'MULTI-SKIN'
+
+front = 'front'
+back = 'back'
+
+multi_hand_configs = {
+    'HOLDSTRAIGHT': [back, front],
+    'FLATUP': [back]
+}

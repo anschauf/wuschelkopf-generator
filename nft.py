@@ -140,7 +140,7 @@ def generate_trait_set_from_config(skin_tone: str, hair_color, config):
     trait_set = []
     trait_paths = []
 
-    for layer in config:
+    for layer_index, layer in enumerate(config):
         # Extract list of traits and cumulative rarity weights
         traits, cum_rarities = layer['traits'], layer['cum_rarity_weights']
 
@@ -176,14 +176,48 @@ def generate_trait_set_from_config(skin_tone: str, hair_color, config):
             else:
                 chosen_trait = f'{constants.is_skeletive_pretag}_{chosen_trait.split("_")[1]}_{constants.basic_posttag}.png'
 
+        # Handle multi-hand logic or append the normal right hand trait.
+        if chosen_trait is not None and chosen_trait.startswith(constants.is_multi_hand_pretag):
+            trait_set, trait_paths = append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, layer_index)
+        else:
+            # Add selected trait to trait set
+            trait_set.append(chosen_trait)
+            # Add trait path to trait paths if the trait has been selected
+            if chosen_trait is not None:
+                trait_path = os.path.join(layer['directory'], chosen_trait)
+                trait_paths.append(trait_path)
 
-        # Add selected trait to trait set
-        trait_set.append(chosen_trait)
+    return trait_set, trait_paths
 
-        # Add trait path to trait paths if the trait has been selected
-        if chosen_trait is not None:
-            trait_path = os.path.join(layer['directory'], chosen_trait)
-            trait_paths.append(trait_path)
+
+def append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, idx):
+    multi_hand_key = chosen_trait.split("_")[2].split('.')[0]
+    layers = constants.multi_hand_configs[multi_hand_key]
+
+    previous_layer = config[idx-1]
+    curren_layer = config[idx]
+    following_layer = config[idx + 1]
+
+    # Change back layer if necessary (if it should not be 'None')
+    if constants.back in layers:
+        trait_set.pop()
+
+        trait_name = f'{constants.skin_adapt_pretag}_{multi_hand_key}_{skin_tone}.png'
+        trait_set.append(trait_name)
+        trait_paths.append(os.path.join(previous_layer['directory'], trait_name))
+
+    # Add chosen layer
+    # TODO: Adapt skin-tone with function
+    trait_set.append(chosen_trait)
+    trait_paths.append(os.path.join(curren_layer['directory'], chosen_trait))
+
+    # Add front layer if necessary
+    if constants.front in layers:
+        trait_name = f'{constants.skin_adapt_pretag}_{multi_hand_key}_{skin_tone}.png'
+        trait_set.append(trait_name)
+        trait_paths.append(os.path.join(following_layer['directory'], trait_name))
+    else:
+        trait_set.append(None)
 
     return trait_set, trait_paths
 

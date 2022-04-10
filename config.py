@@ -154,7 +154,8 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '13_Righthand'
+        'parity_path': None
+        # 'parity_path': '14_Righthand-Thing'
     },
 ]
 
@@ -278,11 +279,29 @@ FEMALE_CONFIG = [
     },
     {
         'id': 14,
-        'name': 'Right-Hand',
-        'directory': '13_Righthand',
+        'name': 'Right-Hand Back',
+        'directory': '13_Righthand-Back',
+        'skeleton_block': False,
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': None
+    },
+    {
+        'id': 15,
+        'name': 'Right-Hand Thing',
+        'directory': '14_Righthand-Thing',
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '14_Righthand'
+        'parity_path': None
     },
+    {
+        'id': 16,
+        'name': 'Right-Hand Front',
+        'directory': '15_Righthand-Front',
+        'skeleton_block': False,
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': None
+    }
 ]
