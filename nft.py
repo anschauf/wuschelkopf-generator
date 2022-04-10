@@ -151,6 +151,14 @@ def generate_trait_set_from_config(skin_tone: str, hair_color, config):
             if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
                 chosen_trait = f'{constants.is_alive_adapt_pretag}_{chosen_trait.split("_")[1]}_{constants.alive_posttag}.png'
 
+        # Handle Skelet-sensible adaption
+        if chosen_trait is not None and chosen_trait.startswith(constants.is_skeletive_pretag):
+            if skin_tone is constants.skeleton_skin:
+                chosen_trait = f'{constants.is_skeletive_pretag}_{chosen_trait.split("_")[1]}_{constants.skelet_posttag}.png'
+            else:
+                chosen_trait = f'{constants.is_skeletive_pretag}_{chosen_trait.split("_")[1]}_{constants.basic_posttag}.png'
+
+
         # Add selected trait to trait set
         trait_set.append(chosen_trait)
 

@@ -15,3 +15,8 @@ not_alive_posttag = 'Ghost'
 
 # Skeleton block
 skeleton_block = 'skeleton_block'
+
+#Skeleton adaption
+is_skeletive_pretag = 'IsSkeletive'
+skelet_posttag = 'Skelet'
+basic_posttag = 'Basic'
