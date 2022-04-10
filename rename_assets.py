@@ -19,6 +19,7 @@ def main():
                 os.rename(complete_old_file, new_file)
                 print(f'Replaced "{complete_old_file} with {new_file}"')
                 count += 1
+    print('################################')
     print(f'Total replacement: {count}')
 
 main()
