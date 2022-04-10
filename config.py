@@ -99,7 +99,7 @@ MALE_CONFIG = [
         'directory': '09_HairExtensions',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+        'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
     },
     {
         'id': 11,
@@ -206,7 +206,7 @@ FEMALE_CONFIG = [
         'directory': '08_HairExtensions',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+        'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
     },
     {
         'id': 10,
