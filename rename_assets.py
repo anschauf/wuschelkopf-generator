@@ -9,6 +9,8 @@ ending = '_Zeichenfläche 1.png'
 def main():
     print("Test")
 
+    count = 0
+
     for subdir, dirs, files in os.walk(rootdir):
         for file in files:
             if file.endswith(ending):
@@ -16,6 +18,7 @@ def main():
                 new_file = os.path.join(subdir, file.replace(ending, '.png'))
                 os.rename(complete_old_file, new_file)
                 print(f'Replaced "{complete_old_file} with {new_file}"')
-
+                count += 1
+    print(f'Total replacement: {count}')
 
 main()
