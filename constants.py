@@ -28,10 +28,6 @@ basic_posttag = 'Basic'
 # Multi-Hand (Right Hand)
 is_multi_hand_pretag = 'MULTI-SKIN'
 
+
 front = 'front'
 back = 'back'
-
-multi_hand_configs = {
-    'HOLDSTRAIGHT': [back, front],
-    'FLATUP': [back]
-}

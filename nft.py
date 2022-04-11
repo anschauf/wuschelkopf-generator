@@ -9,6 +9,7 @@ import time
 import os
 import random
 from progressbar import progressbar
+from general_configs import multi_hand_configs
 
 import warnings
 
@@ -17,7 +18,8 @@ import constants
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # Import configuration file
-from config import MALE_CONFIG, FEMALE_CONFIG
+from female_config import FEMALE_CONFIG
+from male_config import MALE_CONFIG
 
 male_assets_path = os.path.join('assets', 'male')
 female_assets_path = os.path.join('assets', 'female')
@@ -192,7 +194,7 @@ def generate_trait_set_from_config(skin_tone: str, hair_color, config):
 
 def append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, idx):
     multi_hand_key = chosen_trait.split("_")[2].split('.')[0]
-    layers = constants.multi_hand_configs[multi_hand_key]
+    layers = multi_hand_configs[multi_hand_key]
 
     previous_layer = config[idx-1]
     curren_layer = config[idx]
