@@ -154,7 +154,7 @@ FEMALE_CONFIG = [
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': None
+        'parity_path': '15_Righthand-Thing'
     },
     {
         'id': 16,

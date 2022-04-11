@@ -127,12 +127,29 @@ MALE_CONFIG = [
     },
     {
         'id': 15,
-        'name': 'Right-Hand',
-        'directory': '14_Righthand',
+        'name': 'Right-Hand Back',
+        'directory': '14_Righthand-Back',
+        'skeleton_block': False,
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': None
+    },
+    {
+        'id': 16,
+        'name': 'Right-Hand Thing',
+        'directory': '15_Righthand-Thing',
         'skeleton_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': None
-        # 'parity_path': '14_Righthand-Thing'
+        'parity_path': '14_Righthand-Thing'
     },
+    {
+        'id': 17,
+        'name': 'Right-Hand Front',
+        'directory': '16_Righthand-Front',
+        'skeleton_block': False,
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': None
+    }
 ]
