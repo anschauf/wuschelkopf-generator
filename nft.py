@@ -12,6 +12,7 @@ from configs.female_config import FEMALE_CONFIG
 from configs.male_config import MALE_CONFIG
 import constants
 from image_generator import generate_images
+from json_generator import create_attribute_json
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -120,8 +121,10 @@ def main():
     edition_name = input()
 
     print("Starting task...")
-    generate_images(edition_name, male_config, female_config, num_avatars)
+    all_trait_sets, all_trait_paths, general_traits = generate_images(edition_name, male_config, female_config, num_avatars)
 
+    print("Creating attribute-json")
+    attributes_json = create_attribute_json(all_trait_sets, all_trait_paths, general_traits)
     # print("Saving metadata...")
     # rt.to_csv(os.path.join('output', 'edition ' + str(edition_name), 'metadata.csv'))
 

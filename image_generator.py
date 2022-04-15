@@ -19,6 +19,9 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
     if not os.path.exists(op_path):
         os.makedirs(op_path)
 
+    all_trait_sets = list()
+    all_trait_paths = list()
+    general_traits = list()
     # Create the images
     for n in progressbar(range(count)):
         # Generate random constants for the NFT (skin-tone, gender, hair)
@@ -34,10 +37,15 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
 
         # Get a random set of valid traits based on rarity weights
         trait_sets, trait_paths = _generate_trait_set_from_config(skin_tone, hair_color, config)
-
+        all_trait_sets.append(trait_sets)
+        all_trait_paths.append(trait_paths)
+        # collect general traits to pass to the json generator
+        general_traits.append({constants.is_female: is_female, constants.skin: skin_tone,
+                               constants.hair_color: hair_color})
         # Generate the actual image
         _generate_single_image(trait_paths, assets_path, os.path.join(op_path, image_name))
 
+    return all_trait_sets, all_trait_paths, general_traits
 
 def _get_random_from_values(values):
     rand_int = random.randint(0, len(values) - 1)

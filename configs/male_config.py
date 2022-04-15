@@ -77,7 +77,7 @@ MALE_CONFIG = [
         'directory': '08_Chindeko',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0],
+        'rarity_weights': None,
         'parity_path': None
     },
     {

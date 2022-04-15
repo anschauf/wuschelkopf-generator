@@ -36,3 +36,15 @@ is_multi_hand_pretag = 'MULTI-SKIN'
 
 front = 'front'
 back = 'back'
+
+# JSON params
+is_female = 'is_female'
+skin = 'skin'
+hair_color = 'hair_color'
+
+trait_type = 'trait_type'
+value = 'value'
+base = 'Base'
+background_color = 'Background-Color'
+clothing = 'Clothing'
+mouth = 'Mouth'
