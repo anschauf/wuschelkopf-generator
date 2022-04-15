@@ -8,10 +8,10 @@ import warnings
 import numpy as np
 
 # Import configuration file
-from female_config import FEMALE_CONFIG
-from male_config import MALE_CONFIG
+from configs.female_config import FEMALE_CONFIG
+from configs.male_config import MALE_CONFIG
 import constants
-from image_generator import generate_images2
+from image_generator import generate_images
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -120,7 +120,7 @@ def main():
     edition_name = input()
 
     print("Starting task...")
-    generate_images2(edition_name, male_config, female_config, num_avatars)
+    generate_images(edition_name, male_config, female_config, num_avatars)
 
     # print("Saving metadata...")
     # rt.to_csv(os.path.join('output', 'edition ' + str(edition_name), 'metadata.csv'))

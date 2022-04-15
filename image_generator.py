@@ -5,10 +5,10 @@ from progressbar import progressbar
 from PIL import Image
 
 import constants
-from general_configs import multi_hand_configs
+from configs.general_configs import multi_hand_configs
 
 
-def generate_images2(edition, male_config, female_config, count, drop_dup=True):
+def generate_images(edition, male_config, female_config, count, drop_dup=True):
     # Define output path to output/edition {edition_num}
     op_path = os.path.join('output', 'edition ' + str(edition), 'images')
 
