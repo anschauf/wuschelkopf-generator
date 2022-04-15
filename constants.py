@@ -1,8 +1,13 @@
+import os
+
 # indication that the file name must be change according to skin-tone
 skin_adapt_pretag = 'SKIN'
 skeleton_skin = 'Skeleton'
 ghost_skin = 'Ghost'
 skin_tones = ['light', 'choco', ghost_skin, skeleton_skin]
+
+male_assets_path = os.path.join('assets', 'male')
+female_assets_path = os.path.join('assets', 'female')
 
 # Gender
 female_path = 'female'
