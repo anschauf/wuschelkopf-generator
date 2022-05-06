@@ -144,7 +144,7 @@ FEMALE_CONFIG = [
         'directory': '13_Righthand-Back',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
+        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
         'parity_path': None
     },
     {
@@ -162,7 +162,7 @@ FEMALE_CONFIG = [
         'directory': '15_Righthand-Front',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 0, 0, 0, 0],  # all values must be set to '0' here
+        'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
         'parity_path': None
     }
 ]
