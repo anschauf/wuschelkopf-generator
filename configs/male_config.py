@@ -86,7 +86,7 @@ MALE_CONFIG = [
         'directory': '09_HairExtensions',
         'skeleton_block': False,
         'required': False,
-        'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
         'parity_path': None
     },
     {
