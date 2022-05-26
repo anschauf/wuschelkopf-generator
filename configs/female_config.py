@@ -26,6 +26,7 @@ FEMALE_CONFIG = [
         'name': 'Background',
         'directory': '00_Background',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '00_Background'
@@ -35,6 +36,7 @@ FEMALE_CONFIG = [
         'name': 'Shoes',
         'directory': '01_Shoes',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': None
@@ -44,6 +46,7 @@ FEMALE_CONFIG = [
         'name': 'Body',
         'directory': '02_Body',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '02_Body'
@@ -53,6 +56,7 @@ FEMALE_CONFIG = [
         'name': 'Clothes',
         'directory': '03_Clothes',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': None
@@ -62,6 +66,7 @@ FEMALE_CONFIG = [
         'name': 'Mouth',
         'directory': '04_Mouth',
         'skeleton_block': True,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': None
@@ -71,6 +76,7 @@ FEMALE_CONFIG = [
         'name': 'Eyes',
         'directory': '05_Eyes',
         'skeleton_block': True,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': None
@@ -80,6 +86,7 @@ FEMALE_CONFIG = [
         'name': 'Hair',
         'directory': '06_Hair',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '06_Hair'
@@ -89,6 +96,7 @@ FEMALE_CONFIG = [
         'name': 'Face-Decoration',
         'directory': '07_Facedeko',
         'skeleton_block': False,
+        'no_facedeco_block': True,
         'required': False,
         'rarity_weights': None,
         'parity_path': None
@@ -98,6 +106,7 @@ FEMALE_CONFIG = [
         'name': 'Hair-Extensions',
         'directory': '08_HairExtensions',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
         'parity_path': None
@@ -107,6 +116,7 @@ FEMALE_CONFIG = [
         'name': 'Hats',
         'directory': '09_Hats',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': None,
         'parity_path': '10_Hats'
@@ -116,6 +126,7 @@ FEMALE_CONFIG = [
         'name': 'Head-Decoration',
         'directory': '10_Headdeko',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': None,
         'parity_path': '11_Headdeko'
@@ -125,6 +136,7 @@ FEMALE_CONFIG = [
         'name': 'Left-Hand Thing',
         'directory': '11_Lefthand-Thing',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '12_Lefthand-Thing'
@@ -134,6 +146,7 @@ FEMALE_CONFIG = [
         'name': 'Left-Hand',
         'directory': '12_Lefthand',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '13_Lefthand'
@@ -143,6 +156,7 @@ FEMALE_CONFIG = [
         'name': 'Right-Hand Back',
         'directory': '13_Righthand-Back',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
         'parity_path': None
@@ -152,6 +166,7 @@ FEMALE_CONFIG = [
         'name': 'Right-Hand Thing',
         'directory': '14_Righthand-Thing',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
         'parity_path': '15_Righthand-Thing'
@@ -161,6 +176,7 @@ FEMALE_CONFIG = [
         'name': 'Right-Hand Front',
         'directory': '15_Righthand-Front',
         'skeleton_block': False,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
         'parity_path': None

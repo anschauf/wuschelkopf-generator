@@ -22,8 +22,9 @@ is_alive_adapt_pretag = 'IsAlive'
 alive_posttag = 'Basic'
 not_alive_posttag = 'Ghost'
 
-# Skeleton block
+# Config blocks
 skeleton_block = 'skeleton_block'
+nofacedeco_block = 'no_facedeco_block'
 
 #Skeleton adaption
 is_skeletive_pretag = 'IsSkeletive'
@@ -32,6 +33,10 @@ basic_posttag = 'Basic'
 
 # Multi-Hand (Right Hand)
 is_multi_hand_pretag = 'MULTI-SKIN'
+
+# No face deco
+is_alive_no_facedeco_pretag = 'IsAliveNoFaceDeco'
+no_facedeco_pretag = 'NoFaceDeco'
 
 
 front = 'front'

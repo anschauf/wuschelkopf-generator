@@ -57,9 +57,16 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
     trait_set = []
     trait_paths = []
 
+    no_facedeco = False
+
     for layer_index, layer in enumerate(config):
         # Extract list of traits and cumulative rarity weights
         traits, cum_rarities = layer['traits'], layer['cum_rarity_weights']
+
+        # Skip layer if no-face deco has before set to True by any layer and current layer is face deco.
+        if no_facedeco and layer.get(constants.nofacedeco_block):
+            continue
+
 
         # skip layer if it is blocked by the Skeleton-block
         if skin_tone is constants.skeleton_skin and layer.get(constants.skeleton_block):
@@ -78,15 +85,20 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         elif chosen_trait is not None and chosen_trait.startswith(constants.hair_adapt_pretag):
             chosen_trait = f'{constants.hair_adapt_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
 
+        # Handle Noface deco & IsAlive
+        if chosen_trait is not None and (chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(constants.no_facedeco_pretag)):
+            no_facedeco = True
+
         # Handle isAlive
         if skin_tone is constants.ghost_skin:
             if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
-                chosen_trait = f'{constants.is_alive_adapt_pretag}_{chosen_trait.split("_")[1]}' \
+                chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
                                f'_{constants.not_alive_posttag}.png'
         else:
             if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
-                chosen_trait = f'{constants.is_alive_adapt_pretag}_{chosen_trait.split("_")[1]}' \
+                chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
                                f'_{constants.alive_posttag}.png'
+
 
         # Handle Skelet-sensible adaption
         if chosen_trait is not None and chosen_trait.startswith(constants.is_skeletive_pretag):
