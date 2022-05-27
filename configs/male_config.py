@@ -96,7 +96,7 @@ MALE_CONFIG = [
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': [100, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        'rarity_weights': [100, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         'parity_path': None
     },
     {
