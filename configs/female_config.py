@@ -133,28 +133,38 @@ FEMALE_CONFIG = [
     },
     {
         'id': 12,
-        'name': 'Left-Hand Thing',
-        'directory': '11_Lefthand-Thing',
+        'name': 'Left-Hand Back',
+        'directory': '11_Lefthand-Back',
         'skeleton_block': False,
         'no_facedeco_block': False,
-        'required': True,
-        'rarity_weights': None,
-        'parity_path': '12_Lefthand-Thing'
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': '12_Lefthand-Back'
     },
     {
         'id': 13,
-        'name': 'Left-Hand',
-        'directory': '12_Lefthand',
+        'name': 'Left-Hand Thing',
+        'directory': '12_Lefthand-Thing',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '13_Lefthand'
+        'parity_path': '13_Lefthand-Thing'
     },
     {
         'id': 14,
+        'name': 'Left-Hand Front',
+        'directory': '13_Lefthand-Front',
+        'skeleton_block': False,
+        'no_facedeco_block': False,
+        'required': False,
+        'rarity_weights': [100, 0, 0, 0, 0],  # all values must be set to '0' here
+        'parity_path': '14_Lefthand-Front'
+    },
+    {
+        'id': 15,
         'name': 'Right-Hand Back',
-        'directory': '13_Righthand-Back',
+        'directory': '14_Righthand-Back',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': False,
@@ -164,21 +174,21 @@ FEMALE_CONFIG = [
     {
         'id': 15,
         'name': 'Right-Hand Thing',
-        'directory': '14_Righthand-Thing',
+        'directory': '15_Righthand-Thing',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '15_Righthand-Thing'
+        'parity_path': '16_Righthand-Thing'
     },
     {
         'id': 16,
         'name': 'Right-Hand Front',
-        'directory': '15_Righthand-Front',
+        'directory': '16_Righthand-Front',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': False,
         'rarity_weights': [100, 0, 0, 0, 0, 0, 0, 0, 0],  # all values must be set to '0' here
-        'parity_path': None
+        'parity_path': '17_Righthand-Front'
     }
 ]
