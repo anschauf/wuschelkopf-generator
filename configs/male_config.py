@@ -41,28 +41,8 @@ MALE_CONFIG = [
     },
     {
         'id': 5,
-        'name': 'Mouth',
-        'directory': '04_Mouth',
-        'skeleton_block': True,
-        'no_facedeco_block': False,
-        'required': True,
-        'rarity_weights': None,
-        'parity_path': None
-    },
-    {
-        'id': 6,
-        'name': 'Eyes',
-        'directory': '05_Eyes',
-        'skeleton_block': True,
-        'no_facedeco_block': False,
-        'required': True,
-        'rarity_weights': None,
-        'parity_path': None
-    },
-    {
-        'id': 7,
         'name': 'Hair',
-        'directory': '06_Hair',
+        'directory': '04_Hair',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,
@@ -70,21 +50,41 @@ MALE_CONFIG = [
         'parity_path': '06_Hair'
     },
     {
-        'id': 8,
-        'name': 'Face-Decoration',
-        'directory': '07_Facedeko',
+        'id': 6,
+        'name': 'Chin-Decoration',
+        'directory': '05_Chindeko',
         'skeleton_block': False,
-        'no_facedeco_block': True,
+        'no_facedeco_block': False,
         'required': False,
         'rarity_weights': None,
         'parity_path': None
     },
     {
-        'id': 9,
-        'name': 'Chin-Decoration',
-        'directory': '08_Chindeko',
-        'skeleton_block': False,
+        'id': 7,
+        'name': 'Mouth',
+        'directory': '06_Mouth',
+        'skeleton_block': True,
         'no_facedeco_block': False,
+        'required': True,
+        'rarity_weights': None,
+        'parity_path': None
+    },
+    {
+        'id': 8,
+        'name': 'Eyes',
+        'directory': '07_Eyes',
+        'skeleton_block': True,
+        'no_facedeco_block': False,
+        'required': True,
+        'rarity_weights': None,
+        'parity_path': None
+    },
+    {
+        'id': 9,
+        'name': 'Face-Decoration',
+        'directory': '08_Facedeko',
+        'skeleton_block': False,
+        'no_facedeco_block': True,
         'required': False,
         'rarity_weights': None,
         'parity_path': None

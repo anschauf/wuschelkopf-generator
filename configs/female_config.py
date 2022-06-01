@@ -89,7 +89,7 @@ FEMALE_CONFIG = [
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '06_Hair'
+        'parity_path': '04_Hair'
     },
     {
         'id': 8,

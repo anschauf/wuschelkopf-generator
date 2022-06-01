@@ -121,5 +121,9 @@ def _clean_image_name(image_name: str):
 
 
 def _extract_middle_part(image_name: str):
-    image_split = image_name.split('_')
-    return image_split[1] if (len(image_split) >= 2) else image_name
+    if image_name is None:
+        print("Image name is None")
+        return image_name
+    else:
+        image_split = image_name.split('_')
+        return image_split[1] if (len(image_split) >= 2) else image_name
