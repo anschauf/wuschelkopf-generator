@@ -38,6 +38,12 @@ is_multi_hand_pretag = 'MULTI-SKIN'
 is_alive_no_facedeco_pretag = 'IsAliveNoFaceDeco'
 no_facedeco_pretag = 'NoFaceDeco'
 
+# Open/ closed shoe naked start
+is_naked_shoes = 'IsNakedShoes'
+naked_shoes_tag = 'HasNakedShoes'
+naked_open = 'OPEN'
+naked_closed = 'CLOSED'
+
 
 front = 'front'
 back = 'back'

@@ -58,6 +58,7 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
     trait_paths = []
 
     no_facedeco = False
+    nakedShoes = False
 
     for layer_index, layer in enumerate(config):
         # Extract list of traits and cumulative rarity weights
@@ -71,6 +72,8 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         # skip layer if it is blocked by the Skeleton-block
         if skin_tone is constants.skeleton_skin and layer.get(constants.skeleton_block):
             continue
+
+
 
         # Generate a random number
         rand_num = random.random()
@@ -88,6 +91,20 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         # Handle Noface deco & IsAlive
         if chosen_trait is not None and (chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(constants.no_facedeco_pretag)):
             no_facedeco = True
+
+        # Handle NakedShoes config
+        if chosen_trait is not None and (chosen_trait.startswith(constants.is_naked_shoes)):
+            nakedShoes = True
+
+        if chosen_trait is not None and chosen_trait.startswith(constants.naked_shoes_tag):
+            if nakedShoes:
+                chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
+                           f'_{constants.naked_open}'
+            else:
+                chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
+                           f'_{constants.naked_closed}'
+
+            chosen_trait += f'{skin_tone}.png'
 
         # Handle isAlive
         if skin_tone is constants.ghost_skin:

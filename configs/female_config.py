@@ -33,8 +33,18 @@ FEMALE_CONFIG = [
     },
     {
         'id': 2,
-        'name': 'Shoes',
-        'directory': '01_Shoes',
+        'name': 'Body',
+        'directory': '01_Body',
+        'skeleton_block': False,
+        'no_facedeco_block': False,
+        'required': True,
+        'rarity_weights': None,
+        'parity_path': '01_Body'
+    },
+    {
+        'id': 3,
+        'name': 'Clothes',
+        'directory': '02_Clothes',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,
@@ -42,19 +52,9 @@ FEMALE_CONFIG = [
         'parity_path': None
     },
     {
-        'id': 3,
-        'name': 'Body',
-        'directory': '02_Body',
-        'skeleton_block': False,
-        'no_facedeco_block': False,
-        'required': True,
-        'rarity_weights': None,
-        'parity_path': '02_Body'
-    },
-    {
         'id': 4,
-        'name': 'Clothes',
-        'directory': '03_Clothes',
+        'name': 'Shoes',
+        'directory': '03_Shoes',
         'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,

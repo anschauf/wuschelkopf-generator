@@ -11,31 +11,31 @@ MALE_CONFIG = [
     },
     {
         'id': 2,
-        'name': 'Shoes',
-        'directory': '01_Shoes',
-        'required': True,
+        'name': 'Body',
+        'directory': '01_Body',
         'skeleton_block': False,
         'no_facedeco_block': False,
+        'required': True,
+        'rarity_weights': None,
+        'parity_path': '01_Body'
+    },
+    {
+        'id': 4,
+        'name': 'Clothes',
+        'directory': '02_Clothes',
+        'skeleton_block': False,
+        'no_facedeco_block': False,
+        'required': True,
         'rarity_weights': None,
         'parity_path': None
     },
     {
         'id': 3,
-        'name': 'Body',
-        'directory': '02_Body',
+        'name': 'Shoes',
+        'directory': '03_Shoes',
+        'required': True,
         'skeleton_block': False,
         'no_facedeco_block': False,
-        'required': True,
-        'rarity_weights': None,
-        'parity_path': '02_Body'
-    },
-    {
-        'id': 4,
-        'name': 'Clothes',
-        'directory': '03_Clothes',
-        'skeleton_block': False,
-        'no_facedeco_block': False,
-        'required': True,
         'rarity_weights': None,
         'parity_path': None
     },
