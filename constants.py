@@ -41,8 +41,8 @@ no_facedeco_pretag = 'NoFaceDeco'
 # Open/ closed shoe naked start
 is_naked_shoes = 'IsNakedShoes'
 naked_shoes_tag = 'HasNakedShoes'
-naked_open = 'OPEN'
-naked_closed = 'CLOSED'
+naked_open = 'Open'
+naked_closed = 'Closed'
 
 
 front = 'front'
