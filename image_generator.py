@@ -58,7 +58,7 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
     trait_paths = []
 
     no_facedeco = False
-    nakedShoes = False
+    naked_shoes = False
 
     for layer_index, layer in enumerate(config):
         # Extract list of traits and cumulative rarity weights
@@ -83,21 +83,29 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
 
         # Adapt the trait according to the skin-tone and the hair-color
         chosen_trait = traits[idx]
-        if chosen_trait is not None and chosen_trait.startswith(constants.skin_adapt_pretag):
-            chosen_trait = f'{constants.skin_adapt_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
-        elif chosen_trait is not None and chosen_trait.startswith(constants.hair_adapt_pretag):
-            chosen_trait = f'{constants.hair_adapt_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
+        if chosen_trait is not None and (chosen_trait.startswith(constants.skin_adapt_pretag) or chosen_trait.startswith(constants.is_skin_naked_shoes)):
+            skin_pretag = chosen_trait.split("_")[0]
+            chosen_trait = f'{skin_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
+
+        elif chosen_trait is not None and (chosen_trait.startswith(constants.hair_adapt_pretag) or chosen_trait.startswith(constants.is_hair_naked_shoes)):
+            hair_pretag = chosen_trait.split("_")[0]
+            chosen_trait = f'{hair_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
 
         # Handle Noface deco & IsAlive
         if chosen_trait is not None and (chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(constants.no_facedeco_pretag)):
             no_facedeco = True
 
         # Handle NakedShoes config
-        if chosen_trait is not None and (chosen_trait.startswith(constants.is_naked_shoes)):
-            nakedShoes = True
+        if chosen_trait is not None and \
+                (
+                    chosen_trait.startswith(constants.is_naked_shoes) or
+                    chosen_trait.startswith(constants.is_hair_naked_shoes) or
+                    chosen_trait.startswith(constants.is_skin_naked_shoes)
+                ):
+            naked_shoes = True
 
         if chosen_trait is not None and chosen_trait.startswith(constants.naked_shoes_tag):
-            if nakedShoes:
+            if naked_shoes:
                 chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
                            f'_{constants.naked_open}'
             else:
