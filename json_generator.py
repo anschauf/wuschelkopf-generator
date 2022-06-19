@@ -1,5 +1,6 @@
 import constants
 import re
+import json
 
 
 def create_attribute_json(all_trait_sets, all_trait_paths, general_traits):
@@ -8,7 +9,8 @@ def create_attribute_json(all_trait_sets, all_trait_paths, general_traits):
         trait_paths = all_trait_paths[i]
         general_trait = general_traits[i]
         attributes.append(_create_single_attribute_json(trait_set, trait_paths, general_trait))
-    return attributes
+        print("")
+    return json.dumps(attributes)
 
 
 def _create_single_attribute_json(trait_set, trait_paths, general_trait):
@@ -36,24 +38,42 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
         },
         {
             constants.trait_type: constants.clothing,
+            constants.value: _clean_image_name(trait_set[2]),
+        },
+        {
+            constants.trait_type: constants.shoes,
             constants.value: _clean_image_name(trait_set[3]),
         }
     ])
 
+    if not general_trait[constants.is_female]:
+        if trait_set[5 + skip_iter] is not None:
+            attributes.append({
+                constants.trait_type: constants.chin_deco_text,
+                constants.value: _clean_image_name(trait_set[5 + skip_iter])
+            })
+            skip_iter += 1
+
+    eye_trait = trait_set[6 + skip_iter]
     if general_trait[constants.skin] != constants.skeleton_skin:
         attributes.extend([
             {
                 constants.trait_type: constants.mouth,
-                constants.value: _clean_image_name(trait_set[4])
+                constants.value: _clean_image_name(trait_set[5 + skip_iter])
             },
             {
                 constants.trait_type: constants.eyes,
-                constants.value: _clean_image_name(trait_set[5])
+                constants.value: _clean_image_name(eye_trait)
             }
         ])
-        skip_iter += 2
 
-    if trait_set[5 + skip_iter]:
+        if str(eye_trait).startswith(constants.is_alive_no_facedeco_pretag):
+            skip_iter += 1
+        else:
+            skip_iter += 2
+
+    if trait_set[5 + skip_iter] is not None and \
+            not str(eye_trait).startswith(constants.is_alive_no_facedeco_pretag):
         attributes.append(
             {
                 constants.trait_type: constants.face_deco_text,
@@ -61,43 +81,58 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
             }
         )
 
-    if not general_trait[constants.is_female]:
-        if trait_set[6 + skip_iter]:
-            attributes.append({
-                constants.trait_type: constants.chin_deco_text,
-                constants.value: _clean_image_name(trait_set[6 + skip_iter])
-            })
-            skip_iter += 1
-
-    if trait_set[6 + skip_iter]:
+    if trait_set[6 + skip_iter] is not None:
         attributes.append({
             constants.trait_type: constants.hair_extension_text,
             constants.value: _clean_image_name(trait_set[6 + skip_iter])
         })
 
-    if trait_set[7 + skip_iter]:
+    if trait_set[7 + skip_iter] is not None:
         attributes.append({
             constants.trait_type: constants.hat_text,
             constants.value: _clean_image_name(trait_set[7 + skip_iter])
         })
 
-    if trait_set[8 + skip_iter]:
+    if trait_set[8 + skip_iter] is not None:
         attributes.append({
             constants.trait_type: constants.hair_deco_text,
             constants.value: _clean_image_name(trait_set[8 + skip_iter])
         })
 
-    if trait_set[9 + skip_iter]:
+
+    lefhand_item = trait_set[10 + skip_iter]
+    if lefhand_item is not None:
         attributes.append({
             constants.trait_type: constants.left_hand_text,
-            constants.value: _clean_image_name(trait_set[9 + skip_iter])
+            constants.value: _clean_image_name(lefhand_item)
         })
+        if not str(lefhand_item).startswith(constants.is_multi_hand_pretag):
+            skip_iter -= 1
 
-    if trait_set[12 + skip_iter]:
+    if trait_set[14 + skip_iter] is not None:
         attributes.append({
             constants.trait_type: constants.right_hand_text,
-            constants.value: _clean_image_name(trait_set[12 + skip_iter])
+            constants.value: _clean_image_name(trait_set[14 + skip_iter])
         })
+
+
+    print("")
+    # if trait_set[9 + skip_iter]:
+    #     attributes.append({
+    #         constants.trait_type: constants.left_hand_text,
+    #         constants.value: _clean_image_name(trait_set[10 + skip_iter])
+    #     })
+    #     skip_iter += 2
+    #
+    # if trait_set[11 + skip_iter]:
+    #     skip_iter += 1
+    #
+    #     right_hand_pos = 12 + skip_iter
+    #     attributes.append({
+    #         constants.trait_type: constants.right_hand_text,
+    #         constants.value: _clean_image_name(trait_set[right_hand_pos])
+    #     })
+    #     skip_iter += 1
 
 
 

@@ -63,18 +63,18 @@ FEMALE_CONFIG = [
     },
     {
         'id': 5,
-        'name': 'Mouth',
-        'directory': '04_Mouth',
-        'skeleton_block': True,
+        'name': 'Hair',
+        'directory': '04_Hair',
+        'skeleton_block': False,
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': None
+        'parity_path': '04_Hair'
     },
     {
         'id': 6,
-        'name': 'Eyes',
-        'directory': '05_Eyes',
+        'name': 'Mouth',
+        'directory': '05_Mouth',
         'skeleton_block': True,
         'no_facedeco_block': False,
         'required': True,
@@ -83,13 +83,13 @@ FEMALE_CONFIG = [
     },
     {
         'id': 7,
-        'name': 'Hair',
-        'directory': '06_Hair',
-        'skeleton_block': False,
+        'name': 'Eyes',
+        'directory': '06_Eyes',
+        'skeleton_block': True,
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '04_Hair'
+        'parity_path': None
     },
     {
         'id': 8,

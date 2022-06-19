@@ -20,7 +20,7 @@ MALE_CONFIG = [
         'parity_path': '01_Body'
     },
     {
-        'id': 4,
+        'id': 3,
         'name': 'Clothes',
         'directory': '02_Clothes',
         'skeleton_block': False,
@@ -30,7 +30,7 @@ MALE_CONFIG = [
         'parity_path': None
     },
     {
-        'id': 3,
+        'id': 4,
         'name': 'Shoes',
         'directory': '03_Shoes',
         'required': True,
@@ -47,7 +47,7 @@ MALE_CONFIG = [
         'no_facedeco_block': False,
         'required': True,
         'rarity_weights': None,
-        'parity_path': '06_Hair'
+        'parity_path': '04_Hair'
     },
     {
         'id': 6,

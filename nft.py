@@ -5,9 +5,12 @@
 import os
 import random
 import warnings
+
 import numpy as np
 
 # Import configuration file
+from rtree.core import rt
+
 from configs.female_config import FEMALE_CONFIG
 from configs.male_config import MALE_CONFIG
 import constants
@@ -125,9 +128,9 @@ def main():
 
     print("Creating attribute-json")
     attributes_json = create_attribute_json(all_trait_sets, all_trait_paths, general_traits)
-    # print("Saving metadata...")
-    # rt.to_csv(os.path.join('output', 'edition ' + str(edition_name), 'metadata.csv'))
-
+    print("Saving metadata...")
+    with open(os.path.join('output', 'edition ' + str(edition_name), 'metadata.json'), 'w') as f:
+        f.write(attributes_json)
     print("Task complete!")
 
 
