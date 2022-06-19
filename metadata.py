@@ -13,13 +13,14 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-# Base metadata. MUST BE EDITED.
-BASE_IMAGE_URL = "ipfs://<-- Your CID Code-->"
-BASE_NAME = ""
+# Base metadata. MUST BE EDITED!!!!!!!!!!!!!!!.
+BASE_IPFS_PATH = 'QmeQWkvits2KQKfFPAcL3MqCQJTSpTYCEcRhthzQRJ9T3z'
+BASE_IMAGE_URL = f"https://ipfs.io/ipfs/{BASE_IPFS_PATH}"
+BASE_NAME = "Wuschelkopf #"
 
 BASE_JSON = {
     "name": BASE_NAME,
-    "description": "",
+    "description": "The Wuschelkopf NFT collection on Ethereum",
     "image": BASE_IMAGE_URL,
     "attributes": [],
 }
@@ -28,7 +29,7 @@ BASE_JSON = {
 # Get metadata and JSON files path based on edition
 def generate_paths(edition_name):
     edition_path = os.path.join('output', 'edition ' + str(edition_name))
-    metadata_path = os.path.join(edition_path, 'metadata.csv')
+    metadata_path = os.path.join(edition_path, 'metadata.json')
     json_path = os.path.join(edition_path, 'json')
 
     return edition_path, metadata_path, json_path
@@ -50,16 +51,15 @@ def clean_attributes(attr_name):
 # Function to get attribure metadata
 def get_attribute_metadata(metadata_path):
 
-    # Read attribute data from metadata file 
-    df = pd.read_csv(metadata_path)
-    df = df.drop('Unnamed: 0', axis = 1)
-    df.columns = [clean_attributes(col) for col in df.columns]
+    with open(metadata_path, 'r') as f:
+        # Read attribute data from metadata file
+        attributes = json.load(f)
 
     # Get zfill count based on number of images generated
     # -1 according to nft.py. Otherwise not working for 100 NFTs, 1000 NTFs, 10000 NFTs and so on
-    zfill_count = len(str(df.shape[0]-1))
+    zfill_count = len(str(len(attributes)))
 
-    return df, zfill_count
+    return attributes, zfill_count
 
 # Main function that generates the JSON metadata
 def main():
@@ -83,9 +83,9 @@ def main():
         os.makedirs(json_path)
     
     # Get attribute data and zfill count
-    df, zfill_count = get_attribute_metadata(metadata_path)
+    all_attributes, zfill_count = get_attribute_metadata(metadata_path)
     
-    for idx, row in progressbar(df.iterrows()):    
+    for idx, ones_attributes in progressbar(enumerate(all_attributes)):
     
         # Get a copy of the base JSON (python dict)
         item_json = deepcopy(BASE_JSON)
@@ -96,14 +96,8 @@ def main():
         # Append image PNG file name to base image path
         item_json['image'] = item_json['image'] + '/' + str(idx).zfill(zfill_count) + '.png'
         
-        # Convert pandas series to dictionary
-        attr_dict = dict(row)
-        
-        # Add all existing traits to attributes dictionary
-        for attr in attr_dict:
-            
-            if attr_dict[attr] != 'none':
-                item_json['attributes'].append({ 'trait_type': attr, 'value': attr_dict[attr] })
+        # Add attributes to the item
+        item_json['attributes'].extend(ones_attributes)
         
         # Write file to json folder
         item_json_path = os.path.join(json_path, str(idx))
