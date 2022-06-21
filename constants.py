@@ -15,7 +15,7 @@ male_path = 'male'
 
 # Hair color
 hair_adapt_pretag = 'HAIR'
-hairs = ['Blue', 'Brown', 'Burning', 'Green', 'Lime', 'Grey', 'Purple', 'Red', 'Orange', 'Shining', 'Yellow', "Rainbow"]
+hairs = ['Blue', 'Brown', 'Burning', 'Green', 'Lime', 'Grey', 'Purple', 'Red', 'Orange', 'ShiningGreen', 'ShiningOrange', 'ShiningPurple', 'Yellow', "Rainbow"]
 
 # Ghost or alive
 is_alive_adapt_pretag = 'IsAlive'
