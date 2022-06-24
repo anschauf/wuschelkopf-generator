@@ -54,12 +54,18 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
             })
             skip_iter += 1
 
+    mouth_trait = trait_set[5 + skip_iter]
     eye_trait = trait_set[6 + skip_iter]
+    if mouth_trait is None:
+        mouth_trait = trait_set[5 + skip_iter + 1]
+        eye_trait = trait_set[6 + skip_iter + 1]
+
     if general_trait[constants.skin] != constants.skeleton_skin:
+
         attributes.extend([
             {
                 constants.trait_type: constants.mouth,
-                constants.value: _clean_image_name(trait_set[5 + skip_iter])
+                constants.value: _clean_image_name(mouth_trait)
             },
             {
                 constants.trait_type: constants.eyes,
@@ -146,8 +152,8 @@ def _create_female_json(trait_set, trait_paths, general_trait):
     }
 
 
-def _clean_image_name(image_name: str):
-    image_name = _extract_middle_part(image_name)
+def _clean_image_name(originale_image_name: str):
+    image_name = _extract_middle_part(originale_image_name)
     image_name = image_name.replace('.png', '')
     image_name = re.split("([A-Z][^A-Z]*)", image_name)
     image_name[0] = image_name[0].capitalize()
