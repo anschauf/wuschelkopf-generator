@@ -1,7 +1,7 @@
 import os
 from image_generator import _generate_single_image
 
-filename = 'chosen.png'
+filename = 'chosen3.png'
 gender = 'male'
 genderpath = os.path.join('assets', gender)
 
@@ -12,7 +12,7 @@ def main():
         '00_Background\\Green.png',
         '01_Body\\SKIN_Standard_light.png',
         '02_Clothes\\IsHairNakedShoes_Adam_Orange.png',
-        '03_Shoes\\HasNakedShoes_FlipflopSalmon_Openlight.png',
+        '03_Shoes\\HasNakedShoes_Barefoot_Openlight.png',
         '04_Hair\\HAIR_Standard_Orange.png',
         '06_Mouth\\IsAlive_SootherGreen_Basic.png',
         '07_Eyes\\IsAlive_HeartsBlue_Basic.png',
