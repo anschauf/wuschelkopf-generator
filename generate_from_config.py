@@ -1,8 +1,8 @@
 import os
 from image_generator import _generate_single_image
 
-gender = 'female'
-color = 'Orange'
+gender = 'male'
+color = 'Yellow'
 
 filename = f'hair_{color}_{gender}.png'
 genderpath = os.path.join('assets', gender)
@@ -22,7 +22,7 @@ def main():
         '08_Facedeko\\Tattoo.png',
         f'09_HairExtensions\\HAIR_Pigtail_{color}.png',
         '10_Hats\\FezDefault.png',
-        '11_Headdeko\\SKIN_ElvenearsAndHornsWhite_light.png',
+        f'11_Headdeko\\HAIR_Sheep_{color}.png',
         '12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_light.png',
         '13_Lefthand-Thing\\MULTI-SKIN_GiraffaDefault_HOLDSTRAIGHT.png',
         '14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_light.png',
@@ -42,7 +42,7 @@ def main():
         '07_Facedeko\\Tattoo.png',
         f'08_HairExtensions\\HAIR_Pigtail_{color}.png',
         '09_Hats\\FezDefault.png',
-        '10_Headdeko\\SKIN_ElvenearsAndHornsWhite_light.png',
+        f'10_Headdeko\\HAIR_Sheep_{color}.png',
         '11_Lefthand-Back\\SKIN_HOLDSTRAIGHT_light.png',
         '12_Lefthand-Thing\\MULTI-SKIN_GiraffaDefault_HOLDSTRAIGHT.png',
         '13_Lefthand-Front\\SKIN_HOLDSTRAIGHT_light.png',
