@@ -3,10 +3,10 @@ from image_generator import _generate_single_image
 
 gender = 'female'
 color = 'Blue'
-skin = 'light'
+skin = 'Skeleton'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
-filename = f'new_heels.png'
+filename = f'rubinleft.png'
 genderpath = os.path.join('assets', gender)
 
 
@@ -36,10 +36,12 @@ def main():
         '00_Background\\Lightblue.png',
         f'01_Body\\SKIN_Standard_{skin}.png',
         '02_Clothes\\IsNakedShoes_CocktaildressSalmon.png',
-        f'03_Shoes\\ConverseOrange_Zeichenfläche 1.png',
+        f'03_Shoes\\ConverseBlack.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
-        '05_Mouth\\IsAlive_Fangs_Basic.png',
-        '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
+        # '05_Mouth\\IsAlive_Fangs_Basic.png',
+        'Skeleton_Mouth\\BlingGold.png',
+        # '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
+        'Skeleton_Eyes\\Rubinleft.png',
         '07_Facedeko\\Tattoo.png',
         # '09_Hats\\WizardhatRed.png',
         f'10_Headdeko\\SKIN_ElvenearsAndHornsWhite_{skin}.png',

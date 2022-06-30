@@ -24,6 +24,7 @@ not_alive_posttag = 'Ghost'
 
 # Config blocks
 skeleton_block = 'skeleton_block'
+only_skeleton = 'only_skeleton'
 nofacedeco_block = 'no_facedeco_block'
 
 #Skeleton adaption
@@ -72,4 +73,8 @@ hair_extension_text = 'Hair-Extension'
 hair_deco_text = 'Hair-Decoration'
 left_hand_text = 'Left-Hand'
 right_hand_text = 'Right-Hand'
+
+
+skeleton_eyes_chance = 80
+skeleton_mouth_chance = 80
 

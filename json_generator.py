@@ -54,24 +54,50 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
             })
             skip_iter += 1
 
+    mouth_folder_start = '07'
+    if general_trait[constants.is_female]:
+        mouth_folder_start = '06'
+
+    eyes_folder_start = '08'
+    if general_trait[constants.is_female]:
+        eyes_folder_start = '07'
+
+    mouth_trait = None
+    mouth_trait_pos = 5 + skip_iter
+    eye_trait = None
+    eye_trait_pos = mouth_trait_pos + 1
+
+    if trait_paths[mouth_trait_pos].startswith(mouth_folder_start):
+        # mouth trait
+        mouth_trait = trait_set[mouth_trait_pos]
+    else:
+        mouth_trait_pos += 1
+        if trait_paths[mouth_trait_pos].startswith(mouth_folder_start):
+            mouth_trait = trait_set[mouth_trait_pos]
+
+    if trait_paths[eye_trait_pos].startswith(eyes_folder_start):
+        eye_trait = trait_set[eye_trait_pos]
+    elif trait_paths[eye_trait_pos + 1].startswith(eyes_folder_start):
+        eye_trait = trait_set[eye_trait_pos + 1]
+
     mouth_trait = trait_set[5 + skip_iter]
     eye_trait = trait_set[6 + skip_iter]
-    if mouth_trait is None:
-        mouth_trait = trait_set[5 + skip_iter + 1]
-        eye_trait = trait_set[6 + skip_iter + 1]
 
-    if general_trait[constants.skin] != constants.skeleton_skin:
-
-        attributes.extend([
+    if mouth_trait is not None:
+        attributes.append(
             {
                 constants.trait_type: constants.mouth,
                 constants.value: _clean_image_name(mouth_trait)
-            },
+            }
+        )
+
+    if eye_trait is not None:
+        attributes.append(
             {
                 constants.trait_type: constants.eyes,
                 constants.value: _clean_image_name(eye_trait)
             }
-        ])
+        )
 
         if str(eye_trait).startswith(constants.is_alive_no_facedeco_pretag):
             skip_iter += 1

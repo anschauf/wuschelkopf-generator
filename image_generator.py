@@ -47,6 +47,7 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
 
     return all_trait_sets, all_trait_paths, general_traits
 
+
 def _get_random_from_values(values):
     rand_int = random.randint(0, len(values) - 1)
     return values[rand_int]
@@ -68,12 +69,18 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         if no_facedeco and layer.get(constants.nofacedeco_block):
             continue
 
+        if skin_tone is constants.skeleton_skin:
+            # Skeleton
+            if layer.get(constants.skeleton_block):
+                continue
+        else:
+            # Not Skeleton -> but layer is only meant for a skeleton, skip it.
+            if layer.get(constants.only_skeleton):
+                continue
 
         # skip layer if it is blocked by the Skeleton-block
         if skin_tone is constants.skeleton_skin and layer.get(constants.skeleton_block):
             continue
-
-
 
         # Generate a random number
         rand_num = random.random()
@@ -83,34 +90,40 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
 
         # Adapt the trait according to the skin-tone and the hair-color
         chosen_trait = traits[idx]
-        if chosen_trait is not None and (chosen_trait.startswith(constants.skin_adapt_pretag) or chosen_trait.startswith(constants.is_skin_naked_shoes)):
+        if chosen_trait is not None and (
+                chosen_trait.startswith(constants.skin_adapt_pretag) or chosen_trait.startswith(
+                constants.is_skin_naked_shoes)):
             skin_pretag = chosen_trait.split("_")[0]
             chosen_trait = f'{skin_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
 
-        elif chosen_trait is not None and (chosen_trait.startswith(constants.hair_adapt_pretag) or chosen_trait.startswith(constants.is_hair_naked_shoes)):
+        elif chosen_trait is not None and (
+                chosen_trait.startswith(constants.hair_adapt_pretag) or chosen_trait.startswith(
+                constants.is_hair_naked_shoes)):
             hair_pretag = chosen_trait.split("_")[0]
             chosen_trait = f'{hair_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
 
         # Handle Noface deco & IsAlive
-        if chosen_trait is not None and (chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(constants.no_facedeco_pretag)):
+        if chosen_trait is not None and (
+                chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(
+                constants.no_facedeco_pretag)):
             no_facedeco = True
 
         # Handle NakedShoes config
         if chosen_trait is not None and \
                 (
-                    chosen_trait.startswith(constants.is_naked_shoes) or
-                    chosen_trait.startswith(constants.is_hair_naked_shoes) or
-                    chosen_trait.startswith(constants.is_skin_naked_shoes)
+                        chosen_trait.startswith(constants.is_naked_shoes) or
+                        chosen_trait.startswith(constants.is_hair_naked_shoes) or
+                        chosen_trait.startswith(constants.is_skin_naked_shoes)
                 ):
             naked_shoes = True
 
         if chosen_trait is not None and chosen_trait.startswith(constants.naked_shoes_tag):
             if naked_shoes:
                 chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
-                           f'_{constants.naked_open}'
+                               f'_{constants.naked_open}'
             else:
                 chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
-                           f'_{constants.naked_closed}'
+                               f'_{constants.naked_closed}'
 
             chosen_trait += f'{skin_tone}.png'
 
@@ -123,7 +136,6 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
             if chosen_trait is not None and chosen_trait.startswith(constants.is_alive_adapt_pretag):
                 chosen_trait = f'{chosen_trait.split("_")[0]}_{chosen_trait.split("_")[1]}' \
                                f'_{constants.alive_posttag}.png'
-
 
         # Handle Skelet-sensible adaption
         if chosen_trait is not None and chosen_trait.startswith(constants.is_skeletive_pretag):
