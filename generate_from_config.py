@@ -2,11 +2,11 @@ import os
 from image_generator import _generate_single_image
 
 gender = 'female'
-color = 'ShiningPurple'
-skin = 'choco'
+color = 'Blue'
+skin = 'light'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
-filename = f'Claudia_choco.png'
+filename = f'new_heels.png'
 genderpath = os.path.join('assets', gender)
 
 
@@ -19,8 +19,8 @@ def main():
         f'02_Clothes\\IsHairNakedShoes_Adam_{color}.png',
         f'03_Shoes\\HasNakedShoes_Barefoot_Open{skin}.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
-        f'05_Chindeko\\SKIN_Chinballs_{skin}.png',
-        '06_Mouth\\IsAlive_SootherGreen_Basic.png',
+        f'05_Chindeko\\HAIR_Beard_{color}.png',
+        '06_Mouth\\IsAlive_OneTooth_Basic.png',
         '07_Eyes\\IsAlive_HeartsBlue_Basic.png',
         '10_Hats\\FezDefault.png',
         f'11_Headdeko\\HAIR_Sheep_{color}.png',
@@ -35,8 +35,8 @@ def main():
     female_configs = [
         '00_Background\\Lightblue.png',
         f'01_Body\\SKIN_Standard_{skin}.png',
-        '02_Clothes\\JokerBlueOrange.png',
-        f'03_Shoes\\HasNakedShoes_Barefoot_Closed{skin}.png',
+        '02_Clothes\\IsNakedShoes_CocktaildressSalmon.png',
+        f'03_Shoes\\HasNakedShoes_HighHeelsBlue_Openlight.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
         '05_Mouth\\IsAlive_Fangs_Basic.png',
         '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
