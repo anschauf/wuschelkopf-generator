@@ -19,6 +19,7 @@
 #                If required is False, this array must be equal to one plus the number of images in the layer directory. The first number is the weight of having no image at all for this layer. The second number is the weight of the first image and so on...
 
 # Be sure to check out the tutorial in the README for more details.                
+from itertools import repeat
 
 FEMALE_CONFIG = [
     {
@@ -55,6 +56,20 @@ FEMALE_CONFIG = [
         'parity_path': None
     },
     {
+        # 125 images
+        # 9 elements
+
+        # Classic: 2
+        # Converse: 6
+        # Barefoot: 8
+        # Flipflops: 48
+        # HighHeels: 40
+        # Joker 5
+        # Pirateboot: 5
+        # Rubberboot: 6
+        # Uggboot: 5
+
+        # Other 4 each 7=> 28
         'id': 4,
         'name': 'Shoes',
         'directory': '03_Shoes',
@@ -62,7 +77,8 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': list(repeat(24, 2)) + list(repeat(8, 6)) + list(repeat(6, 8)) + list(repeat(1, 48)) + list(repeat(1, 40)) + list(repeat(10, 5)) + list(repeat(10, 5)) + list(repeat(8, 6)) + list(repeat(10, 5))
+        ,
         'parity_path': None
     },
     {
@@ -73,10 +89,17 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
+        # Hair rarities are defined under 'constants.py'
         'rarity_weights': None,
         'parity_path': '04_Hair'
     },
     {
+        # 44 images
+        # 10 objects
+        # ===============
+        # Lips: 14 => 3 * 14
+        # Soother: 14 => 1 * 14
+        # Others: 2 each => 8* 7 * 2
         'id': 6,
         'name': 'Mouth',
         'directory': '05_Mouth',
@@ -84,7 +107,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': list(repeat(7, 4)) + list(repeat(3, 14)) + list(repeat(7, 6)) + list(repeat(1, 14)) + list(repeat(7, 6)),
         'parity_path': None
     },
     {
@@ -99,6 +122,25 @@ FEMALE_CONFIG = [
         'parity_path': '06_2_Skeleton_Mouth'
     },
     {
+        # 92 images
+        # 14 elements
+        ##################
+        # Bow: 2
+        # Buttons: 10
+        # Cross: 2
+        # CrossEyed: 2
+        # Dots: 2
+        # Hearts: 14
+        # Lashed: 14
+        # Manga: 8
+        # Points: 2
+        # Shining: 14
+        # Stars: 12
+        # Stonde: 2
+        # Cyclops: 2
+        # Illidan: 8
+
+
         'id': 8,
         'name': 'Eyes',
         'directory': '06_Eyes',
@@ -106,7 +148,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': list(repeat(14, 2)) + list(repeat(3, 10)) + list(repeat(14, 6)) + list(repeat(2, 28)) + list(repeat(4, 8)) + list(repeat(14, 2)) + list(repeat(2, 14)) + list(repeat(3, 12)) + list(repeat(14, 4)) + list(repeat(3, 8)),
         'parity_path': None
     },
     {
@@ -121,6 +163,9 @@ FEMALE_CONFIG = [
         'parity_path': '07_2_Skeleton_Eyes'
     },
     {
+        # 16 images
+        # 5 elements
+        # 50% face deco
         'id': 10,
         'name': 'Face-Decoration',
         'directory': '07_Facedeko',
@@ -128,7 +173,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': True,
         'required': False,
-        'rarity_weights': None,
+        'rarity_weights': [70] + list(repeat(4, 4)) + list(repeat(5, 3)) + list(repeat(8, 2)) + list(repeat(3, 6)) + list(repeat(4, 1)),
         'parity_path': None
     },
     {
@@ -143,6 +188,10 @@ FEMALE_CONFIG = [
         'parity_path': None
     },
     {
+        # 36 images
+        # 8 elements
+        # total points: 278
+        # 70% nothing, 30% hats => 649
         'id': 12,
         'name': 'Hats',
         'directory': '09_Hats',
@@ -150,10 +199,14 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': None,
+        'rarity_weights': [649] + list(repeat(7, 5)) + list(repeat(9, 4)) + list(repeat(9, 4)) + list(repeat(7, 5)) + list(repeat(7, 4)) + list(repeat(9, 4)) + list(repeat(9, 4)) + list(repeat(6, 6)),
         'parity_path': '10_Hats'
     },
     {
+        # 65 images
+        # 11 elements
+        # total points: 710
+        # 70 % nothing, 30% deco =>
         'id': 13,
         'name': 'Head-Decoration',
         'directory': '10_Headdeko',
@@ -161,7 +214,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': None,
+        'rarity_weights': [1657] + list(repeat(13, 5)) + list(repeat(16, 4)) + list(repeat(22, 6)) + list(repeat(11, 6)) + list(repeat(5, 15)) + list(repeat(22, 3)) + list(repeat(16, 4)) + list(repeat(16, 4)) + list(repeat(4, 12)) + list(repeat(11, 6)),
         'parity_path': '11_Headdeko'
     },
     {
@@ -176,6 +229,11 @@ FEMALE_CONFIG = [
         'parity_path': '12_Lefthand-Back'
     },
     {
+        # 56 images
+        # 11 elements
+        # total points: 625
+        # 50% nothing => 625
+        ############
         'id': 15,
         'name': 'Left-Hand Thing',
         'directory': '12_Lefthand-Thing',
@@ -183,7 +241,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': [625] + list(repeat(11, 5)) + list(repeat(9, 6)) + list(repeat(8, 7)) + list(repeat(9, 6)) + list(repeat(11, 5)) + list(repeat(18, 3)) + list(repeat(11, 5)) + list(repeat(9, 6)) + list(repeat(9, 6)) + list(repeat(18, 3)) + list(repeat(16, 4)),
         'parity_path': '13_Lefthand-Thing'
     },
     {

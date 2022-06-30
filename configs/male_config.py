@@ -1,3 +1,5 @@
+from itertools import repeat
+
 MALE_CONFIG = [
     {
         'id': 1,
@@ -51,6 +53,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
+        # Hair rarities are defined under 'constants.py'
         'rarity_weights': None,
         'parity_path': '04_Hair'
     },
@@ -139,7 +142,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': None,
+        'rarity_weights': [649] + list(repeat(7, 5)) + list(repeat(9, 4)) + list(repeat(9, 4)) + list(repeat(7, 5)) + list(repeat(7, 4)) + list(repeat(9, 4)) + list(repeat(9, 4)) + list(repeat(6, 6)),
         'parity_path': '09_Hats'
     },
     {
@@ -150,7 +153,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': None,
+        'rarity_weights': [1657] + list(repeat(13, 5)) + list(repeat(16, 4)) + list(repeat(22, 6)) + list(repeat(11, 6)) + list(repeat(5, 15)) + list(repeat(22, 3)) + list(repeat(16, 4)) + list(repeat(16, 4)) + list(repeat(4, 12)) + list(repeat(11, 6)),
         'parity_path': '10_Headdeko'
     },
     {
@@ -172,7 +175,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': [625] + list(repeat(11, 5)) + list(repeat(9, 6)) + list(repeat(8, 7)) + list(repeat(9, 6)) + list(repeat(11, 5)) + list(repeat(18, 3)) + list(repeat(11, 5)) + list(repeat(9, 6)) + list(repeat(9, 6)) + list(repeat(18, 3)) + list(repeat(16, 4)),
         'parity_path': '12_Lefthand-Thing'
     },
     {

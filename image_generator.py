@@ -1,6 +1,8 @@
 import os
 import time
 import random
+
+import numpy as np
 from progressbar import progressbar
 from PIL import Image
 
@@ -26,8 +28,8 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
     for n in progressbar(range(count)):
         # Generate random constants for the NFT (skin-tone, gender, hair)
         is_female = True if random.randint(0, 1) > 0 else False
-        skin_tone = _get_random_from_values(constants.skin_tones)
-        hair_color = _get_random_from_values(constants.hairs)
+        skin_tone = _get_random_from_values_with_weights(constants.skin_tones, constants.skink_colors_rarities)
+        hair_color = _get_random_from_values_with_weights(constants.hairs, constants.hair_colors_rarities)
 
         config = female_config if is_female else male_config
         assets_path = constants.female_assets_path if is_female else constants.male_assets_path
@@ -51,6 +53,20 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
 def _get_random_from_values(values):
     rand_int = random.randint(0, len(values) - 1)
     return values[rand_int]
+
+
+def _get_random_from_values_with_weights(values, weights):
+    if len(values) != len(weights):
+        raise ValueError("Values and weights must have the same lenght")
+
+    cumulated_weights = np.cumsum(weights)
+    rand_int = random.randint(0, sum(weights))
+
+    i = 0
+    while cumulated_weights[i] < rand_int:
+        i += 1
+
+    return values[i]
 
 
 # Generate a set of traits given rarities
@@ -92,20 +108,20 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         chosen_trait = traits[idx]
         if chosen_trait is not None and (
                 chosen_trait.startswith(constants.skin_adapt_pretag) or chosen_trait.startswith(
-                constants.is_skin_naked_shoes)):
+            constants.is_skin_naked_shoes)):
             skin_pretag = chosen_trait.split("_")[0]
             chosen_trait = f'{skin_pretag}_{chosen_trait.split("_")[1]}_{skin_tone}.png'
 
         elif chosen_trait is not None and (
                 chosen_trait.startswith(constants.hair_adapt_pretag) or chosen_trait.startswith(
-                constants.is_hair_naked_shoes)):
+            constants.is_hair_naked_shoes)):
             hair_pretag = chosen_trait.split("_")[0]
             chosen_trait = f'{hair_pretag}_{chosen_trait.split("_")[1]}_{hair_color}.png'
 
         # Handle Noface deco & IsAlive
         if chosen_trait is not None and (
                 chosen_trait.startswith(constants.is_alive_no_facedeco_pretag) or chosen_trait.startswith(
-                constants.no_facedeco_pretag)):
+            constants.no_facedeco_pretag)):
             no_facedeco = True
 
         # Handle NakedShoes config
@@ -150,6 +166,7 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
         if chosen_trait is not None and chosen_trait.startswith(constants.is_multi_hand_pretag):
             trait_set, trait_paths = _append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config,
                                                         layer_index)
+
         else:
             # Add selected trait to trait set
             trait_set.append(chosen_trait)
@@ -174,12 +191,17 @@ def _append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, 
         trait_set.pop()
 
         trait_name = f'{constants.skin_adapt_pretag}_{multi_hand_key}_{skin_tone}.png'
+
         trait_set.append(trait_name)
         trait_paths.append(os.path.join(previous_layer['directory'], trait_name))
 
     # Add chosen layer
-    # TODO: Adapt skin-tone with function
-    trait_set.append(chosen_trait)
+    # ignore empty image
+    if chosen_trait.split('_')[1].startswith('AAA'):
+        trait_set.append(None)
+    else:
+        trait_set.append(chosen_trait)
+
     trait_paths.append(os.path.join(curren_layer['directory'], chosen_trait))
 
     # Add front layer if necessary

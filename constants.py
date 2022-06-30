@@ -4,7 +4,7 @@ import os
 skin_adapt_pretag = 'SKIN'
 skeleton_skin = 'Skeleton'
 ghost_skin = 'Ghost'
-skin_tones = ['light', 'choco', ghost_skin, skeleton_skin]
+skin_tones = ['choco', ghost_skin, 'light', skeleton_skin]
 
 male_assets_path = os.path.join('assets', 'male')
 female_assets_path = os.path.join('assets', 'female')
@@ -15,7 +15,7 @@ male_path = 'male'
 
 # Hair color
 hair_adapt_pretag = 'HAIR'
-hairs = ['Blue', 'Brown', 'Burning', 'Green', 'Lime', 'Grey', 'Purple', 'Red', 'Orange', 'ShiningGreen', 'ShiningOrange', 'ShiningPurple', 'Yellow', "Rainbow"]
+hairs = ['Black', 'Blue', 'Brown', 'Burning', 'Green', 'Grey', 'Lime', 'Orange', 'Purple', "Rainbow", 'Red', 'ShiningGreen', 'ShiningOrange', 'ShiningPurple', 'Yellow']
 
 # Ghost or alive
 is_alive_adapt_pretag = 'IsAlive'
@@ -74,7 +74,13 @@ hair_deco_text = 'Hair-Decoration'
 left_hand_text = 'Left-Hand'
 right_hand_text = 'Right-Hand'
 
-
+###################################################
+# Constant rarities
+#####################################################
 skeleton_eyes_chance = 80
 skeleton_mouth_chance = 80
+
+# alphabetically ordered
+skink_colors_rarities = [20, 5, 20, 1]
+hair_colors_rarities = [8, 8, 8, 2, 8, 8, 8, 8, 8, 5, 8, 3, 3, 3, 8]
 
