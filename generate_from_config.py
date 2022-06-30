@@ -3,7 +3,7 @@ from image_generator import _generate_single_image
 
 gender = 'female'
 color = 'ShiningPurple'
-skin = 'Skeleton'
+skin = 'choco'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
 filename = f'Claudia_choco.png'
@@ -35,11 +35,11 @@ def main():
     female_configs = [
         '00_Background\\Lightblue.png',
         f'01_Body\\SKIN_Standard_{skin}.png',
-        '02_Clothes\\JediDefault.png',
+        '02_Clothes\\JokerBlueOrange.png',
         f'03_Shoes\\HasNakedShoes_Barefoot_Closed{skin}.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
-        # '05_Mouth\\IsAlive_Fangs_Basic.png',
-        # '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
+        '05_Mouth\\IsAlive_Fangs_Basic.png',
+        '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
         '07_Facedeko\\Tattoo.png',
         # '09_Hats\\WizardhatRed.png',
         f'10_Headdeko\\SKIN_ElvenearsAndHornsWhite_{skin}.png',
