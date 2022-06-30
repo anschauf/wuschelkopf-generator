@@ -36,7 +36,7 @@ def main():
         '00_Background\\Lightblue.png',
         f'01_Body\\SKIN_Standard_{skin}.png',
         '02_Clothes\\IsNakedShoes_CocktaildressSalmon.png',
-        f'03_Shoes\\HasNakedShoes_HighHeelsBlue_Openlight.png',
+        f'03_Shoes\\ConverseOrange_Zeichenfläche 1.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
         '05_Mouth\\IsAlive_Fangs_Basic.png',
         '06_Eyes\\IsAlive_ShiningPurple_Basic.png',
