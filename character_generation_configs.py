@@ -26,7 +26,7 @@ hero_female = [
     '02_Clothes\\IsNakedShoes_RubberduckLimegreen.png',
     f'03_Shoes\\HasNakedShoes_FlipflopSalmon_OpenSkeleton.png',
     f'04_Hair\\HAIR_Standard_{orange}.png',
-    f'08_HairExtensions\\HAIR_Pigtail_Orange',
+    f'08_HairExtensions\\HAIR_Pigtail_Orange.png',
     f'10_Headdeko\\FlowerYellow.png',
     f'11_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
     '12_Lefthand-Thing\\MULTI-SKIN_TeddyWhite_HOLDSTRAIGHT.png',
