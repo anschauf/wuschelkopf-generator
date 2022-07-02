@@ -142,7 +142,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': False,
-        'rarity_weights': [100, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+        'rarity_weights': [70, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
         'parity_path': None
     },
     {
@@ -219,7 +219,7 @@ MALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(30, 3)) + list(repeat(90, 1)) + list(repeat(18, 5)) + list(repeat(90, 1)) + list(repeat(13, 7)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(45, 2)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(15, 6)) + list(repeat(90, 1)) + list(repeat(15, 6)) + list(repeat(6, 8)) + list(repeat(23, 4)) + list(repeat(90, 4)) + list(repeat(6, 8)) + list(repeat(90, 4)),
+        'rarity_weights': list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(30, 3)) + list(repeat(90, 1)) + list(repeat(18, 5)) + list(repeat(90, 1)) + list(repeat(13, 7)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(45, 2)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(15, 6)) + list(repeat(90, 1)) + list(repeat(15, 6)) + list(repeat(6, 8)) + list(repeat(23, 4)) + list(repeat(180, 4)) + list(repeat(6, 8)) + list(repeat(180, 4)),
         'parity_path': '15_Righthand-Thing'
     },
     {

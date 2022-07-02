@@ -81,6 +81,6 @@ skeleton_eyes_chance = 80
 skeleton_mouth_chance = 80
 
 # alphabetically ordered
-skink_colors_rarities = [20, 5, 20, 1]
+skink_colors_rarities = [36, 16, 36, 8]
 hair_colors_rarities = [8, 8, 8, 2, 8, 8, 8, 8, 8, 5, 8, 3, 3, 3, 8]
 

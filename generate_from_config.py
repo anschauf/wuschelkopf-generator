@@ -3,12 +3,12 @@ import os
 import character_generation_configs
 from image_generator import _generate_single_image
 
-gender = 'female'
+gender = 'male'
 color = 'Blue'
 skin = 'choco'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
-filename = f'no_background_choco_mage_female.png'
+filename = f'illidan.png'
 genderpath = os.path.join('assets', gender)
 
 
@@ -64,7 +64,7 @@ def main():
         configs = female_configs
 
     # _generate_single_image(configs, genderpath, os.path.join(output_path, filename))
-    _generate_single_image(character_generation_configs.choco_mage_female, genderpath, os.path.join(output_path, filename))
+    _generate_single_image(character_generation_configs.illidan, genderpath, os.path.join(output_path, filename))
     print("Generated")
 
 

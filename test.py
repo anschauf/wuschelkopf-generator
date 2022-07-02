@@ -11,7 +11,7 @@ print(direct_list)
 print(sum(direct_list))
 
 
-test_values = list(repeat(12, 15)) + list(repeat(12, 15)) + list(repeat(15, 4))
+test_values = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 
 #
 print(sum(test_values))
