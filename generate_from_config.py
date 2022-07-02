@@ -8,7 +8,7 @@ color = 'Blue'
 skin = 'choco'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
-filename = f'hero_female.png'
+filename = f'no_background_choco_mage_female.png'
 genderpath = os.path.join('assets', gender)
 
 
@@ -37,8 +37,8 @@ def main():
     female_configs = [
         '00_Background\\Lightblue.png',
         f'01_Body\\SKIN_Standard_{skin}.png',
-        '02_Clothes\\IsNakedShoes_CocktaildressSalmon.png',
-        f'03_Shoes\\ConverseBlack.png',
+        '02_Clothes\\BikerPurple.png',
+        f'03_Shoes\\HasNakedShoes_HighHeelsRed_Closed{skin}.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
         '05_Mouth\\IsAlive_Fangs_Basic.png',
         # 'Skeleton_Mouth\\BlingGold.png',
@@ -64,7 +64,7 @@ def main():
         configs = female_configs
 
     # _generate_single_image(configs, genderpath, os.path.join(output_path, filename))
-    _generate_single_image(character_generation_configs.hero_female, genderpath, os.path.join(output_path, filename))
+    _generate_single_image(character_generation_configs.choco_mage_female, genderpath, os.path.join(output_path, filename))
     print("Generated")
 
 
