@@ -21,7 +21,7 @@ hero_male = [
 
 
 hero_female = [
-    '00_Background\\Rosa.png',
+    '00_Background\\Blue.png',
     f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
     '02_Clothes\\IsNakedShoes_RubberduckLimegreen.png',
     f'03_Shoes\\HasNakedShoes_FlipflopSalmon_OpenSkeleton.png',
