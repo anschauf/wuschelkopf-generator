@@ -45,6 +45,9 @@ FEMALE_CONFIG = [
         'parity_path': '01_Body'
     },
     {
+        # 63 images => 65 calculated
+        # elements
+
         'id': 3,
         'name': 'Clothes',
         'directory': '02_Clothes',
@@ -52,7 +55,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': list(repeat(13, 5)) + list(repeat(22, 3)) + list(repeat(16, 4)) + list(repeat(16, 4)) + list(repeat(11, 6)) + list(repeat(7, 10)) + list(repeat(8, 8)) + list(repeat(16, 4)) + list(repeat(13, 5)) + list(repeat(13, 5)) + list(repeat(14, 9)),
         'parity_path': None
     },
     {
@@ -267,6 +270,8 @@ FEMALE_CONFIG = [
         'parity_path': None
     },
     {
+        # 87 images => calculate with 90
+        # 19 objects
         'id': 18,
         'name': 'Right-Hand Thing',
         'directory': '15_Righthand-Thing',
@@ -274,7 +279,7 @@ FEMALE_CONFIG = [
         'only_skeleton': False,
         'no_facedeco_block': False,
         'required': True,
-        'rarity_weights': None,
+        'rarity_weights': list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(30, 3)) + list(repeat(90, 1)) + list(repeat(18, 5)) + list(repeat(90, 1)) + list(repeat(13, 7)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(45, 2)) + list(repeat(18, 5)) + list(repeat(23, 4)) + list(repeat(15, 6)) + list(repeat(90, 1)) + list(repeat(15, 6)) + list(repeat(6, 8)) + list(repeat(23, 4)) + list(repeat(90, 4)) + list(repeat(6, 8)) + list(repeat(90, 4)),
         'parity_path': '16_Righthand-Thing'
     },
     {
