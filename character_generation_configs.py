@@ -14,18 +14,21 @@ chocoSkin = 'choco'
 ghostSkin = 'Ghost'
 
 hero_male = [
-    '00_Background\\Purple.png',
-    f'01_Body\\SKIN_Standard_{lightSkin}.png',
-    f'02_Clothes\\IsSkeletive_HoodieRaspberry_Basic.png',
-    f'03_Shoes\\ConverseBlack.png',
-    f'04_Hair\\HAIR_Standard_{lime}.png',
-    '06_Mouth\\IsAlive_BigSmile_Basic.png',
-    '07_Eyes\\IsAlive_Bow_Basic.png',
-    '10_Hats\\CrownAlternative.png',
-    f'12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{lightSkin}.png',
-    f'14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{lightSkin}.png',
-    f'15_Righthand-Back\\SKIN_FLATUP_{lightSkin}.png',
-    '16_Righthand-Thing\\MULTI-SKIN_FrogAlien_FLATUP.png',
+    # '00_Background\\Purple.png',
+    f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
+    f'02_Clothes\\JokerYellowPurple.png',
+    f'03_Shoes\\JokerYellowPurple.png',
+    f'04_Hair\\HAIR_Standard_{orange}.png',
+    f'05_Chindeko\\HAIR_Beard_Orange.png',
+    # '06_Mouth\\IsAlive_BigSmile_Basic.png',
+    # '07_Eyes\\IsAlive_Bow_Basic.png',
+    '07_2_Skeleton_Eyes\\RubinLeft.png',
+    '10_Hats\\JokerYellowPurple.png',
+    f'12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
+    f'14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
+    f'15_Righthand-Back\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
+    '16_Righthand-Thing\\MULTI-SKIN_LollipopOrange_HOLDSTRAIGHT.png',
+    f'17_Righthand-Front\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
 ]
 
 
