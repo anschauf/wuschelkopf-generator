@@ -11,10 +11,9 @@ import numpy as np
 import constants
 from configs.female_config import FEMALE_CONFIG
 from configs.male_config import MALE_CONFIG
+import constants
 from image_generator import generate_images
 from json_generator import create_attribute_json
-
-# Import configuration file
 
 warnings.simplefilter(action='ignore', category=FutureWarning)
 

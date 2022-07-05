@@ -14,7 +14,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # Base metadata. MUST BE EDITED!!!!!!!!!!!!!!!.
-BASE_IPFS_PATH = 'QmeQWkvits2KQKfFPAcL3MqCQJTSpTYCEcRhthzQRJ9T3z'
+BASE_IPFS_PATH = 'QmYxcZNYJ7EJHGSEiaWhiAtodnnqCpbeM5vS4rrXsRP1P1'
 BASE_IMAGE_URL = f"https://ipfs.io/ipfs/{BASE_IPFS_PATH}"
 BASE_NAME = "Wuschelkopf #"
 
