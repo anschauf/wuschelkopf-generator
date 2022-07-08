@@ -4,11 +4,11 @@ import character_generation_configs
 from image_generator import _generate_single_image
 
 gender = 'male'
-color = 'Blue'
-skin = 'choco'
+color = 'Black'
+skin = 'light'
 
 # filename = f'hair_{color}_Chinballs_{skin}_{gender}.png'
-filename = f'illidan.png'
+filename = f'test_black.png'
 genderpath = os.path.join('assets', gender)
 
 
@@ -21,11 +21,12 @@ def main():
         f'02_Clothes\\IsHairNakedShoes_Adam_{color}.png',
         f'03_Shoes\\HasNakedShoes_Barefoot_Open{skin}.png',
         f'04_Hair\\HAIR_Standard_{color}.png',
-        f'05_Chindeko\\HAIR_Beard_{color}.png',
+        f'05_Chindeko\\HAIR_BeardBraid_{color}.png',
         '06_Mouth\\IsAlive_OneTooth_Basic.png',
         '07_Eyes\\IsAlive_HeartsBlue_Basic.png',
+        '09_HairExtensions\\HAIR_Pigtail_Black.png',
         '10_Hats\\FezDefault.png',
-        f'11_Headdeko\\HAIR_Sheep_{color}.png',
+        # f'11_Headdeko\\HAIR_Sheep_{color}.png',
         f'12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{skin}.png',
         '13_Lefthand-Thing\\MULTI-SKIN_WalkingstickWhite_HOLDSTRAIGHT.png',
         f'14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{skin}.png',
@@ -63,8 +64,8 @@ def main():
     if gender == 'female':
         configs = female_configs
 
-    # _generate_single_image(configs, genderpath, os.path.join(output_path, filename))
-    _generate_single_image(character_generation_configs.illidan, genderpath, os.path.join(output_path, filename))
+    _generate_single_image(configs, genderpath, os.path.join(output_path, filename))
+    # _generate_single_image(character_generation_configs.illidan, genderpath, os.path.join(output_path, filename))
     print("Generated")
 
 
