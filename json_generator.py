@@ -52,15 +52,15 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
                 constants.trait_type: constants.chin_deco_text,
                 constants.value: _clean_image_name(trait_set[5 + skip_iter])
             })
-            skip_iter += 1
+        skip_iter += 1
 
-    mouth_folder_start = '07'
+    mouth_folder_start = '06'
     if general_trait[constants.is_female]:
-        mouth_folder_start = '06'
+        mouth_folder_start = '05'
 
-    eyes_folder_start = '08'
+    eyes_folder_start = '07'
     if general_trait[constants.is_female]:
-        eyes_folder_start = '07'
+        eyes_folder_start = '06'
 
     mouth_trait = None
     mouth_trait_pos = 5 + skip_iter
