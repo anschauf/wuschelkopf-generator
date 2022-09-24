@@ -9,7 +9,6 @@ def create_attribute_json(all_trait_sets, all_trait_paths, general_traits):
         trait_paths = all_trait_paths[i]
         general_trait = general_traits[i]
         attributes.append(_create_single_attribute_json(trait_set, trait_paths, general_trait))
-        print("")
     return json.dumps(attributes)
 
 
@@ -142,32 +141,13 @@ def _create_single_attribute_json(trait_set, trait_paths, general_trait):
             skip_iter -= 1
 
     if trait_set[14 + skip_iter] is not None:
-        attributes.append({
-            constants.trait_type: constants.right_hand_text,
-            constants.value: _clean_image_name(trait_set[14 + skip_iter])
-        })
+        clean_img_name = str(_clean_image_name(trait_set[14 + skip_iter]))
 
-
-    print("")
-    # if trait_set[9 + skip_iter]:
-    #     attributes.append({
-    #         constants.trait_type: constants.left_hand_text,
-    #         constants.value: _clean_image_name(trait_set[10 + skip_iter])
-    #     })
-    #     skip_iter += 2
-    #
-    # if trait_set[11 + skip_iter]:
-    #     skip_iter += 1
-    #
-    #     right_hand_pos = 12 + skip_iter
-    #     attributes.append({
-    #         constants.trait_type: constants.right_hand_text,
-    #         constants.value: _clean_image_name(trait_set[right_hand_pos])
-    #     })
-    #     skip_iter += 1
-
-
-
+        if clean_img_name != 'H  O  L  D  S  T  R  A  I  G  H  T' and clean_img_name != 'R  I  G  H  T  S  I  D  E':
+            attributes.append({
+                constants.trait_type: constants.right_hand_text,
+                constants.value: _clean_image_name(trait_set[14 + skip_iter])
+            })
     return attributes
 
 

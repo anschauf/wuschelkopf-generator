@@ -191,8 +191,16 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
 
 
 def get_train_set_paths_from_path(paths):
-    train_set = [path.split('\\').pop() for path in paths]
-    return train_set, paths
+    train_paths = list(filter(lambda p: p is not None, paths))
+
+    train_set = []
+
+    for path in paths:
+        if path is not None:
+            train_set.append(path.split('\\').pop())
+        else:
+            train_set.append(None)
+    return train_set, train_paths
 
 
 def _append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, idx):
