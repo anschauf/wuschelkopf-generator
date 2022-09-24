@@ -7,10 +7,11 @@ from progressbar import progressbar
 from PIL import Image
 
 import constants
+from character_generation_configs import specific_heroes
 from configs.general_configs import multi_hand_configs
 
 
-def generate_images(edition, male_config, female_config, count, drop_dup=True):
+def generate_images(edition, male_config, female_config, count, use_specific_heroes=False):
     # Define output path to output/edition {edition_num}
     op_path = os.path.join('output', 'edition ' + str(edition), 'images')
 
@@ -26,19 +27,30 @@ def generate_images(edition, male_config, female_config, count, drop_dup=True):
     general_traits = list()
     # Create the images
     for n in progressbar(range(count)):
-        # Generate random constants for the NFT (skin-tone, gender, hair)
-        is_female = True if random.randint(0, 1) > 0 else False
-        skin_tone = _get_random_from_values_with_weights(constants.skin_tones, constants.skink_colors_rarities)
-        hair_color = _get_random_from_values_with_weights(constants.hairs, constants.hair_colors_rarities)
 
-        config = female_config if is_female else male_config
-        assets_path = constants.female_assets_path if is_female else constants.male_assets_path
+        # Generate a specific hero, if one is in the dict, otherwise random one.
+        if use_specific_heroes and n in specific_heroes:
+            # specific hero
+            specific_hero = specific_heroes.get(n)
+            trait_sets, trait_paths = get_train_set_paths_from_path(specific_hero[0])
+            is_female = specific_hero[1]
+            skin_tone = specific_hero[2]
+            hair_color = specific_hero[3]
+
+        else:
+            # Generate random hero
+            is_female = True if random.randint(0, 1) > 0 else False
+            skin_tone = _get_random_from_values_with_weights(constants.skin_tones, constants.skink_colors_rarities)
+            hair_color = _get_random_from_values_with_weights(constants.hairs, constants.hair_colors_rarities)
+
+            config = female_config if is_female else male_config
+            # Get a random set of valid traits based on rarity weights
+            trait_sets, trait_paths = _generate_trait_set_from_config(skin_tone, hair_color, config)
 
         # Set image name
         image_name = str(n).zfill(zfill_count) + '.png'
+        assets_path = constants.female_assets_path if is_female else constants.male_assets_path
 
-        # Get a random set of valid traits based on rarity weights
-        trait_sets, trait_paths = _generate_trait_set_from_config(skin_tone, hair_color, config)
         all_trait_sets.append(trait_sets)
         all_trait_paths.append(trait_paths)
         # collect general traits to pass to the json generator
@@ -176,6 +188,11 @@ def _generate_trait_set_from_config(skin_tone: str, hair_color, config):
                 trait_paths.append(trait_path)
 
     return trait_set, trait_paths
+
+
+def get_train_set_paths_from_path(paths):
+    train_set = [path.split('\\').pop() for path in paths]
+    return train_set, paths
 
 
 def _append_multi_hand(chosen_trait, trait_set, trait_paths, skin_tone, config, idx):

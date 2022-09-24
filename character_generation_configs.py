@@ -1,3 +1,5 @@
+import constants
+
 lime = 'lime'
 orange = 'orange'
 grey = 'grey'
@@ -14,23 +16,19 @@ chocoSkin = 'choco'
 ghostSkin = 'Ghost'
 
 hero_male = [
-    # '00_Background\\Purple.png',
-    f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
-    f'02_Clothes\\JokerYellowPurple.png',
-    f'03_Shoes\\JokerYellowPurple.png',
-    f'04_Hair\\HAIR_Standard_{orange}.png',
-    f'05_Chindeko\\HAIR_Beard_Orange.png',
-    # '06_Mouth\\IsAlive_BigSmile_Basic.png',
-    # '07_Eyes\\IsAlive_Bow_Basic.png',
-    '07_2_Skeleton_Eyes\\RubinLeft.png',
-    '10_Hats\\JokerYellowPurple.png',
-    f'12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
-    f'14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
-    f'15_Righthand-Back\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
-    '16_Righthand-Thing\\MULTI-SKIN_LollipopOrange_HOLDSTRAIGHT.png',
-    f'17_Righthand-Front\\SKIN_HOLDSTRAIGHT_{skeletonSkin}.png',
+    '00_Background\\Purple.png',
+    f'01_Body\\SKIN_Standard_{lightSkin}.png',
+    f'02_Clothes\\IsSkeletive_HoodieRaspberry_Basic.png',
+    f'03_Shoes\\ConverseMint.png',
+    f'04_Hair\\HAIR_Standard_{lime}.png',
+    '06_Mouth\\IsAlive_BigSmile_Basic.png',
+    '07_Eyes\\IsAlive_Bow_Basic.png',
+    '10_Hats\\CrownDefault.png',
+    f'12_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{lightSkin}.png',
+    f'14_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{lightSkin}.png',
+    f'15_Righthand-Back\\SKIN_FLATUP_{lightSkin}.png',
+    '16_Righthand-Thing\\MULTI-SKIN_FrogAlien_FLATUP.png',
 ]
-
 
 hero_female = [
     '00_Background\\Blue.png',
@@ -67,7 +65,7 @@ skeleton_joker = [
 ]
 
 choco_mage_female = [
-    # '00_Background\\Lightblue.png',
+    '00_Background\\Lightblue.png',
     f'01_Body\\SKIN_Standard_{chocoSkin}.png',
     '02_Clothes\\JediWhite.png',
     f'03_Shoes\\HasNakedShoes_Barefoot_Closed{chocoSkin}.png',
@@ -77,7 +75,7 @@ choco_mage_female = [
     '07_Facedeko\\Tattoo.png',
     f'10_Headdeko\\SKIN_ElvenearsAndHornsWhite_{chocoSkin}.png',
     f'11_Lefthand-Back\\SKIN_HOLDSTRAIGHT_{chocoSkin}.png',
-    # '12_Lefthand-Thing\\MULTI-SKIN_TurtleAlbino_HOLDSTRAIGHT.png',
+    '12_Lefthand-Thing\\MULTI-SKIN_TurtleAlbino_HOLDSTRAIGHT.png',
     f'13_Lefthand-Front\\SKIN_HOLDSTRAIGHT_{chocoSkin}.png',
     f'14_Righthand-Back\\SKIN_HOLDSTRAIGHT_{chocoSkin}.png',
     '15_Righthand-Thing\\MULTI-SKIN_MagicWandWhite_HOLDSTRAIGHT.png',
@@ -85,7 +83,7 @@ choco_mage_female = [
 ]
 
 joint_adam = [
-    # '00_Background\\Red.png',
+    '00_Background\\Red.png',
     f'01_Body\\SKIN_Standard_{chocoSkin}.png',
     f'02_Clothes\\IsHairNakedShoes_Adam_Blue.png',
     f'03_Shoes\\UggbootsBrown.png',
@@ -184,3 +182,17 @@ illidan = [
     '16_Righthand-Thing\\MULTI-SKIN_BookBlack_RIGHTSIDE.png',
     f'17_Righthand-Front\\SKIN_RIGHTSIDE_{ghostSkin}.png'
 ]
+
+# paths, is_female, skin_tones, hair_color
+specific_heroes = {
+    5: (hero_male, False, skeletonSkin, orange.capitalize()),
+    23: (hero_female, True, skeletonSkin, orange.capitalize()),
+    3: (skeleton_joker, False, skeletonSkin, grey.capitalize()),
+    17: (choco_mage_female, True, chocoSkin, shiningPurple.capitalize()),
+    32: (joint_adam, False, chocoSkin, blue.capitalize()),
+    24: (ghost_rider, False, skeletonSkin, burning.capitalize()),
+    29: (jedi_ghost, True, ghostSkin, brown.capitalize()),
+    35: (fairy, True, chocoSkin, lime.capitalize()),
+    41: (drunk_lepricon, False, lightSkin, red.capitalize()),
+    65: (illidan, False, ghostSkin, black.capitalize()),
+}

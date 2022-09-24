@@ -118,11 +118,18 @@ def main():
         if num_avatars > 0:
             break
 
+    print("Do you want to include specific heroes? [y/n]")
+    yes = {'yes', 'y', 'ye', ''}
+    choice = input().lower()
+    specific_heroes = False
+    if choice in yes:
+        specific_heroes = True
+
     print("What would you like to call this edition?: ")
     edition_name = input()
 
     print("Starting task...")
-    all_trait_sets, all_trait_paths, general_traits = generate_images(edition_name, male_config, female_config, num_avatars)
+    all_trait_sets, all_trait_paths, general_traits = generate_images(edition_name, male_config, female_config, num_avatars, specific_heroes)
 
     print("Creating attribute-json")
     attributes_json = create_attribute_json(all_trait_sets, all_trait_paths, general_traits)
