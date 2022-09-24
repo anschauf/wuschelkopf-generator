@@ -3,12 +3,15 @@ import time
 import random
 
 import numpy as np
-from progressbar import progressbar
 from PIL import Image
+from tqdm import tqdm
 
 import constants
 from character_generation_configs import specific_heroes
 from configs.general_configs import multi_hand_configs
+
+# keep track of which char was already created -> unique combination assured.
+unique_char_dict = {}
 
 
 def generate_images(edition, male_config, female_config, count, use_specific_heroes=False):
@@ -25,13 +28,21 @@ def generate_images(edition, male_config, female_config, count, use_specific_her
     all_trait_sets = list()
     all_trait_paths = list()
     general_traits = list()
-    # Create the images
-    for n in progressbar(range(count)):
 
+    for hero in specific_heroes.values():
+        _, hero_trait_paths = get_train_set_paths_from_path(hero[0])
+        hero_key = f'{hero_trait_paths}_{hero[1]}_{hero[2]}_{hero[3]}'
+        unique_char_dict[hero_key] = True
+
+    pbar = tqdm(total=count)
+    idx = 0
+
+    # Create the images
+    while idx < count:
         # Generate a specific hero, if one is in the dict, otherwise random one.
-        if use_specific_heroes and n in specific_heroes:
+        if use_specific_heroes and idx in specific_heroes:
             # specific hero
-            specific_hero = specific_heroes.get(n)
+            specific_hero = specific_heroes.get(idx)
             trait_sets, trait_paths = get_train_set_paths_from_path(specific_hero[0])
             is_female = specific_hero[1]
             skin_tone = specific_hero[2]
@@ -47,8 +58,14 @@ def generate_images(edition, male_config, female_config, count, use_specific_her
             # Get a random set of valid traits based on rarity weights
             trait_sets, trait_paths = _generate_trait_set_from_config(skin_tone, hair_color, config)
 
+            # Skip this creation, as not unique hero.
+            hero_key = f'{trait_paths}_{is_female}_{skin_tone}_{hair_color.capitalize()}'
+            if hero_key in unique_char_dict:
+                print(f'Collision at idx: {idx}: Skip it')
+                continue
+
         # Set image name
-        image_name = str(n).zfill(zfill_count) + '.png'
+        image_name = str(idx).zfill(zfill_count) + '.png'
         assets_path = constants.female_assets_path if is_female else constants.male_assets_path
 
         all_trait_sets.append(trait_sets)
@@ -58,6 +75,10 @@ def generate_images(edition, male_config, female_config, count, use_specific_her
                                constants.hair_color: hair_color})
         # Generate the actual image
         _generate_single_image(trait_paths, assets_path, os.path.join(op_path, image_name))
+
+        # Iterate count and progressbar
+        idx += 1
+        pbar.update(1)
 
     return all_trait_sets, all_trait_paths, general_traits
 

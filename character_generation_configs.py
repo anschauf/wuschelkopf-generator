@@ -35,7 +35,7 @@ hero_male = [
 ]
 
 hero_female = [
-    '00_Background\\Blue.png',
+    '00_Background\\DotsBlue.png',
     f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
     '02_Clothes\\IsNakedShoes_RubberduckLimegreen.png',
     f'03_Shoes\\HasNakedShoes_FlipflopSalmon_OpenSkeleton.png',
@@ -55,7 +55,7 @@ hero_female = [
 ]
 
 skeleton_joker = [
-    '00_Background\\Orange.png',
+    '00_Background\\StarsPurple.png',
     f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
     f'02_Clothes\\JokerYellowPurple.png',
     f'03_Shoes\\JokerYellowPurple.png',
@@ -98,7 +98,7 @@ choco_mage_female = [
 ]
 
 joint_adam = [
-    '00_Background\\Red.png',
+    '00_Background\\CirclesRed.png',
     f'01_Body\\SKIN_Standard_{chocoSkin}.png',
     f'02_Clothes\\IsHairNakedShoes_Adam_Blue.png',
     f'03_Shoes\\UggbootsBrown.png',
@@ -119,7 +119,7 @@ joint_adam = [
 ]
 
 ghost_rider = [
-    '00_Background\\Grey.png',
+    '00_Background\\StarsGrey.png',
     f'01_Body\\SKIN_Standard_{skeletonSkin}.png',
     f'02_Clothes\\BikerDefault.png',
     f'03_Shoes\\ConverseBlack.png',
@@ -160,7 +160,7 @@ jedi_ghost = [
 ]
 
 fairy = [
-    '00_Background\\Orange.png',
+    '00_Background\\DotsOrange.png',
     f'01_Body\\SKIN_Standard_{chocoSkin}.png',
     '02_Clothes\\IsNakedShoes_WizardWhite.png',
     f'03_Shoes\\HasNakedShoes_HighHeelsWhite_Openchoco.png',
@@ -201,7 +201,7 @@ drunk_lepricon = [
 ]
 
 illidan = [
-    '00_Background\\Blue.png',
+    '00_Background\\CirclesBlue.png',
     f'01_Body\\SKIN_Standard_{ghostSkin}.png',
     f'02_Clothes\\TrousersDark.png',
     f'03_Shoes\\PiratebootsBlack.png',
